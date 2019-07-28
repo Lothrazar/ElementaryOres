@@ -40,12 +40,15 @@ public class ModElemOres {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     //only for server starting
     MinecraftForge.EVENT_BUS.register(this);
-    ;
+
     ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
   }
 
   private void setup(final FMLCommonSetupEvent event) {
+
+
     WorldGenRegistry.init();
+
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -7,8 +7,8 @@ public class BlockElementaryOre extends Block {
   int minSpawnY = 8;
   int maxSpawnY = 256;
 
-  int veinSize = 8;
-  int spawnRate = 16;
+  int veinSize = 0;
+
   public BlockElementaryOre(Properties properties) {
     super(properties);
   }
@@ -41,13 +41,7 @@ public class BlockElementaryOre extends Block {
     this.veinSize = veinSize;
   }
 
-  public int getSpawnRate() {
-    return spawnRate;
-  }
 
-  public void setSpawnRate(int spawnRate) {
-    this.spawnRate = spawnRate;
-  }
 
 
 
