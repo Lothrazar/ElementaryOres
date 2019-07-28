@@ -43,6 +43,7 @@ public class ElemOresMod {
   }
 
   private void setup(final FMLCommonSetupEvent event) {
+    WorldGenRegistry.init();
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call
