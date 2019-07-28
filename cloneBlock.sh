@@ -21,6 +21,7 @@ folderdata="src/main/resources/data/${modid}"
 cp "${folderdata}"/loot_tables/blocks/${original}.json "${folderdata}"/loot_tables/blocks/"${dest}".json
 
 cp "${folderdata}"/recipes/${original}.json "${folderdata}"/recipes/"${dest}".json
+cp "${folderdata}"/recipes/"${original}_blasting".json "${folderdata}"/recipes/"${dest}_blasting".json
 
 
 cp "${folder}"/blockstates/"${original}".json "${folder}"/blockstates/"${dest}".json

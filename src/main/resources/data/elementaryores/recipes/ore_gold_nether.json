@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "elementaryores:ore_gold_nether"
+  },
+  "result": "minecraft:gold_ingot",
+  "experience": 0.35,
+  "cookingtime": 200
+}
