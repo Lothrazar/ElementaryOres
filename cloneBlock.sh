@@ -32,11 +32,11 @@ cp "${folder}"/models/block/"${original}".json "${folder}"/models/block/"${dest}
 cp "${folder}"/models/item/"${original}".json "${folder}"/models/item/"${dest}".json
 
 
-# replace texture in block model so thi
-#sed -i -e "s/${oldtexture}/${newtexture}/g" "${folder}"/models/block/"${dest}".json
+# replace texture in block model 
 
 
 sed -i -e "s/${original}/${dest}/g" "${folderdata}"/recipes/"${dest}".json
+sed -i -e "s/${original}/${dest}/g" "${folderdata}"/recipes/"${dest}_blasting".json
 sed -i -e "s/${original}/${dest}/g" "${folderdata}"/loot_tables/blocks/"${dest}".json
 
 sed -i -e "s/${original}/${dest}/g" "${folder}"/models/item/"${dest}".json

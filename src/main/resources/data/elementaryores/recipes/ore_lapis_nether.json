@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "elementaryores:ore_lapis_nether"
+  },
+  "result": "minecraft:lapis_lazuli",
+  "experience": 0.35,
+  "cookingtime": 200
+}
