@@ -1,4 +1,4 @@
-package com.lothrazar.elementaryores;
+package com.lothrazar.elementaryores.block;
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockRenderLayer;
 

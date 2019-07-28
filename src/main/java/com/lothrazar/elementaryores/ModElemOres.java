@@ -1,8 +1,11 @@
 package com.lothrazar.elementaryores;
+import com.lothrazar.elementaryores.block.BlockElementaryOre;
+import com.lothrazar.elementaryores.block.OresRegistry;
 import com.lothrazar.elementaryores.setup.ClientProxy;
 import com.lothrazar.elementaryores.setup.ConfigHandler;
 import com.lothrazar.elementaryores.setup.IProxy;
 import com.lothrazar.elementaryores.setup.ServerProxy;
+import com.lothrazar.elementaryores.world.WorldGenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -25,14 +28,14 @@ import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("elementaryores")
-public class ElemOresMod {
+public class ModElemOres {
 
   private String certificateFingerprint = "@FINGERPRINT@";
   public static final IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
   public static final String MODID = "elementaryores";
   private static final Logger LOGGER = LogManager.getLogger();
 
-  public ElemOresMod() {
+  public ModElemOres() {
     // Register the setup method for modloading
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     //only for server starting
@@ -69,7 +72,7 @@ public class ElemOresMod {
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
               .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_end_redstone")));
+          ).setRegistryName("ore_redstone_end")));
     }
 
     @SubscribeEvent

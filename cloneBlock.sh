@@ -32,7 +32,7 @@ cp "${folder}"/models/block/"${original}".json "${folder}"/models/block/"${dest}
 cp "${folder}"/models/item/"${original}".json "${folder}"/models/item/"${dest}".json
 
 
-# replace texture in block model 
+# replace texture in block model
 
 
 sed -i -e "s/${original}/${dest}/g" "${folderdata}"/recipes/"${dest}".json

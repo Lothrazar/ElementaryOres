@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "elementaryores:ore_gold_nether"
   },
-  "result": "minecraft:gold_ingot",
+  "result": "minecraft:gold_nugget",
   "experience": 0.35,
-  "cookingtime": 200
+  "cookingtime": 500
 }

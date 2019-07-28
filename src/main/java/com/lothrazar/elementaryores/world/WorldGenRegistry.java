@@ -1,4 +1,5 @@
-package com.lothrazar.elementaryores;
+package com.lothrazar.elementaryores.world;
+import com.lothrazar.elementaryores.block.OresRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -17,9 +18,12 @@ public class WorldGenRegistry {
   public static void init() {
 
     Biome biome = Biomes.NETHER;
-
+//nether gold
     biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK,
-        OresRegistry.oregoldneth.getDefaultState(), spawnRate), Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
+        OresRegistry.oreGoldNeth.getDefaultState(), spawnRate), Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
+//nether lapis
 
+
+    //end redstone
   }
 }

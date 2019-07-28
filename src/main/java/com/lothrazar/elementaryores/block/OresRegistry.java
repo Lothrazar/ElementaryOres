@@ -1,4 +1,5 @@
-package com.lothrazar.elementaryores;
+package com.lothrazar.elementaryores.block;
+import com.lothrazar.elementaryores.ModElemOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
@@ -16,10 +17,14 @@ public class OresRegistry {
     return blocks;
   }
 
-  @ObjectHolder(ElemOresMod.MODID + ":ore_gold_nether")
-  public static Block oregoldneth;
+  @ObjectHolder(ModElemOres.MODID + ":ore_gold_nether")
+  public static Block oreGoldNeth;
 
-  public static ItemGroup itemGroup = new ItemGroup(ElemOresMod.MODID) {
+  @ObjectHolder(ModElemOres.MODID + ":ore_lapis_nether")
+  public static Block oreLapisNether;
+  @ObjectHolder(ModElemOres.MODID + ":ore_redstone_end")
+  public static Block oreRedstoneEnd;
+  public static ItemGroup itemGroup = new ItemGroup(ModElemOres.MODID) {
 
     @Override
     public ItemStack createIcon() {
