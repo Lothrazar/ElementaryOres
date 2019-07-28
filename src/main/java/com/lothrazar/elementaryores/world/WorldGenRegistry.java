@@ -11,12 +11,15 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
+import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.SphereReplaceConfig;
 import net.minecraft.world.gen.placement.CaveEdgeConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 
 public class WorldGenRegistry {
@@ -35,30 +38,22 @@ public class WorldGenRegistry {
     Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
         OresRegistry.oreLapisNether.getDefaultState(), spawnRate),
         Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
-    //
-   ConfiguredFeature<?> feature = Biome.createDecoratedFeature(Feature.DISK,
-        new SphereReplaceConfig(OresRegistry.oreRedstoneEnd.getDefaultState(), 8, 9 ,
-            Lists.newArrayList(Blocks.END_STONE.getDefaultState())),
-        Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY));
+
+//oreLapisNether
+    Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
+        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
+        Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
 
 
-  feature =   Biome.createDecoratedFeature(Feature.SIMPLE_BLOCK,
-            new BlockWithContextConfig(OresRegistry.oreRedstoneEnd.getDefaultState(),
-                new BlockState[]{Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState()},
-                new BlockState[]{Blocks.END_STONE.getDefaultState()},
-                new BlockState[]{Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState()  }
+    Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
+        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
+        Placement.EMERALD_ORE, IPlacementConfig.NO_PLACEMENT_CONFIG));
+
+//    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+    //    Biome.createDecoratedFeature(Feature.EMERALD_ORE, new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), Blocks.EMERALD_ORE.getDefaultState()),
+    //    Placement.EMERALD_ORE, IPlacementConfig.NO_PLACEMENT_CONFIG));
 
 
-
-                ),
-//            Placement.CARVING_MASK, new CaveEdgeConfig(GenerationStage.Carving.LIQUID, 0.4F)
-
-      Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)
-  );
-
-
-
-    Biomes.THE_END.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature);
   }
 
   public static void addSwampClayDisks(Biome biomeIn) {
