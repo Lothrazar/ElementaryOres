@@ -39,28 +39,12 @@ public class WorldGenRegistry {
         OresRegistry.oreLapisNether.getDefaultState(), spawnRate),
         Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
 
-//    Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-//        new ReplaceBlockConfig(Blocks.OBSIDIAN.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
-//        Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
-
 
     Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
         new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreRedstoneEnd.getDefaultState()),
         Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
 
 
-
-  }
-
-  public static void addSwampClayDisks(Biome biomeIn) {
-//    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.DISK,
-//        new SphereReplaceConfig(Blocks.CLAY.getDefaultState(), 4, 1,
-//            Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.CLAY.getDefaultState())), Placement.COUNT_TOP_SOLID, new FrequencyConfig(1)));
-
-    //    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIORITE.getDefaultState(), 33), Placement.COUNT_RANGE, new CountRangeConfig(10, 0, 0, 80)));
-    //    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.ANDESITE.getDefaultState(), 33), Placement.COUNT_RANGE, new CountRangeConfig(10, 0, 0, 80)));
-    //    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.COAL_ORE.getDefaultState(), 17), Placement.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 128)));
-    //    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.IRON_ORE.getDefaultState(), 9), Placement.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64)));
 
   }
 }

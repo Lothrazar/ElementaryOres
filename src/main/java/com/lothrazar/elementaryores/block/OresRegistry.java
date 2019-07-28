@@ -10,6 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OresRegistry {
+  public static ItemGroup itemGroup = new ItemGroup(ModElemOres.MODID) {
+
+    @Override
+    public ItemStack createIcon() {
+      return new ItemStack(Blocks.GOLD_ORE);
+    }
+  };
 
   private static final List<Block> blocks = new ArrayList<>();
 
@@ -19,25 +26,13 @@ public class OresRegistry {
 
   @ObjectHolder(ModElemOres.MODID + ":ore_gold_nether")
   public static Block oreGoldNeth;
-
   @ObjectHolder(ModElemOres.MODID + ":ore_lapis_nether")
   public static Block oreLapisNether;
   @ObjectHolder(ModElemOres.MODID + ":ore_redstone_end")
   public static Block oreRedstoneEnd;
-  public static ItemGroup itemGroup = new ItemGroup(ModElemOres.MODID) {
 
-    @Override
-    public ItemStack createIcon() {
-      return new ItemStack(Blocks.GOLD_ORE);
-    }
-  };
-
-
-  public static Block addBlock(Block b){
+  public static Block addBlock(Block b) {
     blocks.add(b);
     return b;
   }
-
-
-
 }

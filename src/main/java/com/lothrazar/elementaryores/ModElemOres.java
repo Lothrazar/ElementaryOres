@@ -66,11 +66,11 @@ public class ModElemOres {
               .hardnessAndResistance(2.6F)
           ).setRegistryName("ore_gold_nether")));
       event.getRegistry().register(
-          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.LAPIS)
               .hardnessAndResistance(2.6F)
           ).setRegistryName("ore_lapis_nether")));
       event.getRegistry().register(
-          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.RED)
               .hardnessAndResistance(2.6F)
           ).setRegistryName("ore_redstone_end")));
     }
