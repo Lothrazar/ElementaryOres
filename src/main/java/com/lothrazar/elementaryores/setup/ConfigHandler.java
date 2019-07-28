@@ -10,10 +10,18 @@ import java.nio.file.Path;
 public class ConfigHandler {
 
   private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
+  public static ForgeConfigSpec.IntValue GOLD_NETHERLOW  ;
+  public static ForgeConfigSpec.IntValue REDSTONE_ENDLOW  ;
+  public static ForgeConfigSpec.IntValue LAPIS_NETHERLOW  ;
   public static ForgeConfigSpec COMMON_CONFIG;
   public static ForgeConfigSpec.IntValue GOLD_NETHER;
   public static ForgeConfigSpec.IntValue LAPIS_NETHER;
   public static ForgeConfigSpec.IntValue REDSTONE_END;
+
+
+  public static ForgeConfigSpec.IntValue GOLD_NETHERHIGH  ;
+  public static ForgeConfigSpec.IntValue LAPIS_NETHERHIGH  ;
+  public static ForgeConfigSpec.IntValue REDSTONE_ENDHIGH  ;
 
   static {
     initConfig();
@@ -23,13 +31,31 @@ public class ConfigHandler {
     COMMON_BUILDER.comment("General settings").push(ModElemOres.MODID);
     final String veinComment = "Vein Size";
     GOLD_NETHER = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.size"
-        , 12, 0, 64
+        , 4, 0, 64
     );
     LAPIS_NETHER = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.size"
-        , 12, 0, 64
+        , 2, 0, 64
     );
     REDSTONE_END = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
-        , 12, 0, 64
+        , 1, 0, 64
+    );
+    GOLD_NETHERLOW = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
+        , 16, 0, 64
+    );
+    GOLD_NETHERHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.high"
+        , 85, 0, 64
+    );
+    LAPIS_NETHERLOW = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.low"
+        , 70, 0, 64
+    );
+    LAPIS_NETHERHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.high"
+        , 127, 0, 64
+    );
+    REDSTONE_ENDLOW = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.low"
+        , 1, 0, 64
+    );
+    REDSTONE_ENDHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.high"
+        , 62, 0, 64
     );
     COMMON_BUILDER.pop();
     COMMON_CONFIG = COMMON_BUILDER.build();
