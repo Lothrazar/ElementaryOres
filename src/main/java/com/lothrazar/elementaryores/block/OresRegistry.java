@@ -25,11 +25,11 @@ public class OresRegistry {
   }
 
   @ObjectHolder(ModElemOres.MODID + ":ore_gold_nether")
-  public static Block oreGoldNeth;
+  public static BlockElementaryOre oreGoldNeth;
   @ObjectHolder(ModElemOres.MODID + ":ore_lapis_nether")
-  public static Block oreLapisNether;
+  public static BlockElementaryOre oreLapisNether;
   @ObjectHolder(ModElemOres.MODID + ":ore_redstone_end")
-  public static Block oreRedstoneEnd;
+  public static BlockElementaryOre oreRedstoneEnd;
 
   public static Block addBlock(Block b) {
     blocks.add(b);

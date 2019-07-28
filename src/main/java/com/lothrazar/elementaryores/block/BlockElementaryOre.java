@@ -4,6 +4,11 @@ import net.minecraft.util.BlockRenderLayer;
 
 public class BlockElementaryOre extends Block {
 
+  int minSpawnY = 8;
+  int maxSpawnY = 256;
+
+  int veinSize = 8;
+  int spawnRate = 16;
   public BlockElementaryOre(Properties properties) {
     super(properties);
   }
@@ -11,4 +16,40 @@ public class BlockElementaryOre extends Block {
   public BlockRenderLayer getRenderLayer() {
     return BlockRenderLayer.CUTOUT;
   }
+
+  public int getMinSpawnY() {
+    return minSpawnY;
+  }
+
+  public void setMinSpawnY(int minSpawnY) {
+    this.minSpawnY = minSpawnY;
+  }
+
+  public int getMaxSpawnY() {
+    return maxSpawnY;
+  }
+
+  public void setMaxSpawnY(int maxSpawnY) {
+    this.maxSpawnY = maxSpawnY;
+  }
+
+  public int getVeinSize() {
+    return veinSize;
+  }
+
+  public void setVeinSize(int veinSize) {
+    this.veinSize = veinSize;
+  }
+
+  public int getSpawnRate() {
+    return spawnRate;
+  }
+
+  public void setSpawnRate(int spawnRate) {
+    this.spawnRate = spawnRate;
+  }
+
+
+
+
 }
