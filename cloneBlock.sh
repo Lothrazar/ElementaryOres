@@ -1,13 +1,14 @@
 #!/bin/bash
 
-echo "Useage: ./_.sh <destination>  "
-# for example, ./cloneBlock.sh ore_end_gold
+echo "Useage: ./_.sh <ore> <location>  "
+# for example, ./cloneBlock.sh gold end
 
 # I just happened to make granite first
-dest=$1
-# newtexture=$2
+dest="ore_$1_$2"
 
-original="ore_nether_gold" # becomes destination
+echo "$dest.json"
+
+original="ore_gold_nether" # becomes destination
 
 modid="elementaryores"
 folder="src/main/resources/assets/${modid}"
