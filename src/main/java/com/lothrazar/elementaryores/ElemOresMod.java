@@ -5,6 +5,7 @@ import com.lothrazar.elementaryores.setup.IProxy;
 import com.lothrazar.elementaryores.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -42,15 +43,11 @@ public class ElemOresMod {
   }
 
   private void setup(final FMLCommonSetupEvent event) {
-    // some preinit code
-    TileEntity bob;
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call
   @SubscribeEvent
   public void onServerStarting(FMLServerStartingEvent event) {
-    // do something when the server starts
-    LOGGER.info("HELLO from server starting");
   }
 
   // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
@@ -62,16 +59,24 @@ public class ElemOresMod {
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
       // register a new block here
       event.getRegistry().register(
-          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK)).setRegistryName("ore_gold_nether")));
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
+              .hardnessAndResistance(2.6F)
+          ).setRegistryName("ore_gold_nether")));
+      event.getRegistry().register(
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
+              .hardnessAndResistance(2.6F)
+          ).setRegistryName("ore_lapis_nether")));
+      event.getRegistry().register(
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
+              .hardnessAndResistance(2.6F)
+          ).setRegistryName("ore_end_redstone")));
     }
 
     @SubscribeEvent
     public static void onItemsRegistry(RegistryEvent.Register<Item> event) {
       Item.Properties properties = new Item.Properties().group(OresRegistry.itemGroup);
-      LOGGER.info("onItemsRegistryonItemsRegistryonItemsRegistry");
       List<Block> blocks = OresRegistry.getBlocks();
       for (Block b : blocks) {
-        LOGGER.info(b.getRegistryName());
         event.getRegistry().register(new BlockItem(b, properties)
             .setRegistryName(b.getRegistryName()));
       }

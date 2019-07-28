@@ -6,6 +6,7 @@ public class BlockElementaryOre extends Block {
 
   public BlockElementaryOre(Properties properties) {
     super(properties);
+
   }
 
 
