@@ -1,14 +1,14 @@
 #!/bin/bash
 
-echo "Useage: ./_.sh <destination> <new_newtexture>"
-# for example, ./cloneBlock.sh ore_end_gold gold
+echo "Useage: ./_.sh <destination>  "
+# for example, ./cloneBlock.sh ore_end_gold
 
 # I just happened to make granite first
 dest=$1
-newtexture=$2
+# newtexture=$2
 
 original="ore_end_gold" # becomes destination
-oldtexture="gold" # becomes newtexture
+
 modid="elementaryores"
 folder="src/main/resources/assets/${modid}"
 
@@ -30,16 +30,18 @@ cp "${folder}"/models/block/"${original}".json "${folder}"/models/block/"${dest}
 cp "${folder}"/models/item/"${original}".json "${folder}"/models/item/"${dest}".json
 
 
-# replace blockids
+# replace texture in block model so thi
+#sed -i -e "s/${oldtexture}/${newtexture}/g" "${folder}"/models/block/"${dest}".json
 
-sed -i -e "s/${oldtexture}/${newtexture}/g" "${folderdata}"/recipes/"${dest}".json
-sed -i -e "s/${oldtexture}/${newtexture}/g" "${folderdata}"/loot_tables/blocks/"${dest}".json
 
-sed -i -e "s/${oldtexture}/${newtexture}/g" "${folder}"/models/item/"${dest}".json
+sed -i -e "s/${original}/${dest}/g" "${folderdata}"/recipes/"${dest}".json
+sed -i -e "s/${original}/${dest}/g" "${folderdata}"/loot_tables/blocks/"${dest}".json
 
-sed -i -e "s/${oldtexture}/${newtexture}/g" "${folder}"/models/block/"${dest}".json
+sed -i -e "s/${original}/${dest}/g" "${folder}"/models/item/"${dest}".json
 
-sed -i -e "s/${oldtexture}/${newtexture}/g" "${folder}"/blockstates/"${dest}".json
+sed -i -e "s/${original}/${dest}/g" "${folder}"/models/block/"${dest}".json
+
+sed -i -e "s/${original}/${dest}/g" "${folder}"/blockstates/"${dest}".json
     
 
 echo "files written dest.json"
