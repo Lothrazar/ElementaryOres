@@ -7,7 +7,7 @@ echo "Useage: ./_.sh <destination>  "
 dest=$1
 # newtexture=$2
 
-original="ore_end_gold" # becomes destination
+original="ore_nether_gold" # becomes destination
 
 modid="elementaryores"
 folder="src/main/resources/assets/${modid}"
