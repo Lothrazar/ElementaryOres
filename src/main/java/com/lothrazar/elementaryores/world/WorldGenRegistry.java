@@ -1,5 +1,4 @@
 package com.lothrazar.elementaryores.world;
-
 import com.lothrazar.elementaryores.block.OresRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
@@ -26,8 +25,7 @@ public class WorldGenRegistry {
     )));
     //end redstone
     Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreRedstoneEnd.getDefaultState()),
-        Placement.COUNT_RANGE, new CountRangeConfig(
+        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreRedstoneEnd.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
             OresRegistry.oreRedstoneEnd.getVeinSize(), OresRegistry.oreRedstoneEnd.getMinSpawnY(), 0, OresRegistry.oreRedstoneEnd.getMaxSpawnY())));
   }
 }
