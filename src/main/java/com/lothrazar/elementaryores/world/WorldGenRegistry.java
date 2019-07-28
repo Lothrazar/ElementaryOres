@@ -39,19 +39,15 @@ public class WorldGenRegistry {
         OresRegistry.oreLapisNether.getDefaultState(), spawnRate),
         Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
 
-//oreLapisNether
+//    Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
+//        new ReplaceBlockConfig(Blocks.OBSIDIAN.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
+//        Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
+
+
     Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
+        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreRedstoneEnd.getDefaultState()),
         Placement.COUNT_RANGE, new CountRangeConfig(veinsize, minY, 0, maxY)));
 
-
-    Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-        new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.oreGoldNeth.getDefaultState()),
-        Placement.EMERALD_ORE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-
-//    biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-    //    Biome.createDecoratedFeature(Feature.EMERALD_ORE, new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), Blocks.EMERALD_ORE.getDefaultState()),
-    //    Placement.EMERALD_ORE, IPlacementConfig.NO_PLACEMENT_CONFIG));
 
 
   }
