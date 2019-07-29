@@ -24,10 +24,15 @@ public class WorldGenRegistry {
     OresRegistry.REDSTONE_END.setVeinSize(ConfigHandler.redstoneVeinSize);
     OresRegistry.REDSTONE_END.setMinSpawnY(ConfigHandler.redstoneMin);
     OresRegistry.REDSTONE_END.setMaxSpawnY(ConfigHandler.redstoneMax);
+    OresRegistry.DIAMOND_NETHER.setVeinSize(ConfigHandler.diamondVeinSize);
+    OresRegistry.DIAMOND_NETHER.setMinSpawnY(ConfigHandler.diamondMin);
+    OresRegistry.DIAMOND_NETHER.setMaxSpawnY(ConfigHandler.diamondMax);
+    OresRegistry.EMERALD_END.setVeinSize(ConfigHandler.emeraldVeinSize);
+    OresRegistry.EMERALD_END.setMinSpawnY(ConfigHandler.emeraldMin);
+    OresRegistry.EMERALD_END.setMaxSpawnY(ConfigHandler.emeraldMax);
   }
 
-  public static void init() {
-    initConfigs();
+  private static void initNetherOre() {
     //nether gold
     if (OresRegistry.GOLD_NETHER.getVeinSize() > 0) {
       Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
@@ -41,11 +46,31 @@ public class WorldGenRegistry {
           OresRegistry.LAPIS_NETHER.getVeinSize(), OresRegistry.LAPIS_NETHER.getMinSpawnY(), 0, OresRegistry.LAPIS_NETHER.getMaxSpawnY()
       )));
     }
+    if (OresRegistry.DIAMOND_NETHER.getVeinSize() > 0) {
+      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
+          OresRegistry.DIAMOND_NETHER.getDefaultState(), 8), Placement.COUNT_RANGE, new CountRangeConfig(
+          OresRegistry.DIAMOND_NETHER.getVeinSize(), OresRegistry.DIAMOND_NETHER.getMinSpawnY(), 0, OresRegistry.DIAMOND_NETHER.getMaxSpawnY()
+      )));
+    }
+  }
+
+  private static void initEndOre() {
     //end redstone
     if (OresRegistry.REDSTONE_END.getVeinSize() > 0) {
       Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
           new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.REDSTONE_END.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
               OresRegistry.REDSTONE_END.getVeinSize(), OresRegistry.REDSTONE_END.getMinSpawnY(), 0, OresRegistry.REDSTONE_END.getMaxSpawnY())));
     }
+    if (OresRegistry.EMERALD_END.getVeinSize() > 0) {
+      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
+          new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.EMERALD_END.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
+              OresRegistry.EMERALD_END.getVeinSize(), OresRegistry.EMERALD_END.getMinSpawnY(), 0, OresRegistry.EMERALD_END.getMaxSpawnY())));
+    }
+  }
+
+  public static void init() {
+    initConfigs();
+    initNetherOre();
+    initEndOre();
   }
 }

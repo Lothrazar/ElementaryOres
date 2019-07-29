@@ -12,15 +12,21 @@ public class ConfigHandler {
   public static ForgeConfigSpec.IntValue goldMin;
   public static ForgeConfigSpec.IntValue redstoneMin;
   public static ForgeConfigSpec.IntValue lapisMin;
+  public static ForgeConfigSpec.IntValue diamondMin;
+  public static ForgeConfigSpec.IntValue emeraldMin;
   public static ForgeConfigSpec COMMON_CONFIG;
   public static ForgeConfigSpec.IntValue goldVeinSize;
   public static ForgeConfigSpec.IntValue lapisVeinSize;
   public static ForgeConfigSpec.IntValue redstoneVeinSize;
 
+  public static ForgeConfigSpec.IntValue diamondVeinSize;
+  public static ForgeConfigSpec.IntValue emeraldVeinSize ;
 
   public static ForgeConfigSpec.IntValue goldMax;
   public static ForgeConfigSpec.IntValue lapisMax;
   public static ForgeConfigSpec.IntValue redstoneMax;
+  public static ForgeConfigSpec.IntValue diamondMax;
+  public static ForgeConfigSpec.IntValue emeraldMax;
 
   static {
     initConfig();
@@ -38,6 +44,12 @@ public class ConfigHandler {
     redstoneVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
         , 3, 0, 64
     );
+    emeraldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.size"
+        , 1, 0, 64
+    );
+    diamondVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.size"
+        , 1, 0, 64
+    );
     goldMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
         , 16, 0, 256
     );
@@ -54,7 +66,19 @@ public class ConfigHandler {
         , 1, 0, 256
     );
     redstoneMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.high"
-        , 68, 0, 256
+        , 86, 0, 256
+    );
+    diamondMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.low"
+        , 1, 0, 256
+    );
+    diamondMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.high"
+        , 127, 0, 256
+    );
+    emeraldMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.low"
+        , 1, 0, 256
+    );
+    emeraldMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.high"
+        , 40, 0, 256
     );
     COMMON_BUILDER.pop();
     COMMON_CONFIG = COMMON_BUILDER.build();

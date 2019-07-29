@@ -76,6 +76,14 @@ public class ModElemOres {
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.RED)
               .hardnessAndResistance(2.6F)
           ).setRegistryName("ore_redstone_end")));
+      event.getRegistry().register(
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.DIAMOND)
+              .hardnessAndResistance(2.6F)
+          ).setRegistryName("ore_diamond_nether")));
+      event.getRegistry().register(
+          OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.EMERALD)
+              .hardnessAndResistance(2.6F)
+          ).setRegistryName("ore_emerald_end")));
     }
 
     @SubscribeEvent

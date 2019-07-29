@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "elementaryores:ore_diamond_nether"
+  },
+  "result": "minecraft:diamond",
+  "experience": 0.35,
+  "cookingtime": 500
+}
