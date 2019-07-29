@@ -47,13 +47,13 @@ public class ConfigHandler {
     );
     veinComment = "How comoon are the End ore spawns";
     redstoneVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
-        , 3, 0, 64
+        , 5, 0, 64
     );
     emeraldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.size"
-        , 6, 0, 64
+        , 4, 0, 64
     );
     enderVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.size"
-        , 4, 0, 64
+        , 8, 0, 64
     );
     veinComment = "Min and max y levels for spawn";
     goldMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
