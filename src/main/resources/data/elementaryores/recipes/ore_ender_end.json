@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "elementaryores:ore_ender_end"
   },
-  "result": "minecraft:gold_nugget",
+  "result": "minecraft:ender_pearl",
   "experience": 0.35,
   "cookingtime": 500
 }

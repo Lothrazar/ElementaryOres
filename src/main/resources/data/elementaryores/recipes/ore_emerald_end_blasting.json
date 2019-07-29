@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "elementaryores:ore_emerald_end"
   },
-  "result": "minecraft:emerald_block",
+  "result": "minecraft:emerald",
   "experience": 14.0,
   "cookingtime": 100
 }

@@ -35,61 +35,61 @@ public class ConfigHandler {
 
   private static void initConfig() {
     COMMON_BUILDER.comment("General settings").push(ModElemOres.MODID);
-    String veinComment = "Size of nether ore veins";
-    goldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.size"
+    String comment = "Size of nether ore veins";
+    goldVeinSize = COMMON_BUILDER.comment(comment).defineInRange("netherrack.gold.size"
         , 6, 0, 64
     );
-    lapisVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.size"
+    lapisVeinSize = COMMON_BUILDER.comment(comment).defineInRange("netherrack.lapis.size"
         , 3, 0, 64
     );
-    diamondVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.size"
+    diamondVeinSize = COMMON_BUILDER.comment(comment).defineInRange("netherrack.diamond.size"
         , 1, 0, 64
     );
-    veinComment = "How comoon are the End ore spawns";
-    redstoneVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
+    comment = "How comoon are the End ore spawns";
+    redstoneVeinSize = COMMON_BUILDER.comment(comment).defineInRange("end.redstone.size"
         , 5, 0, 64
     );
-    emeraldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.size"
+    emeraldVeinSize = COMMON_BUILDER.comment(comment).defineInRange("end.emerald.size"
         , 4, 0, 64
     );
-    enderVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.size"
-        , 8, 0, 64
+    enderVeinSize = COMMON_BUILDER.comment(comment).defineInRange("end.ender.size"
+        , 16, 0, 64
     );
-    veinComment = "Min and max y levels for spawn";
-    goldMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
+    comment = "Min and max y levels for spawn";
+    goldMin = COMMON_BUILDER.comment(comment).defineInRange("netherrack.gold.low"
         , 16, 0, 256
     );
-    goldMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.high"
+    goldMax = COMMON_BUILDER.comment(comment).defineInRange("netherrack.gold.high"
         , 85, 0, 256
     );
-    lapisMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.low"
+    lapisMin = COMMON_BUILDER.comment(comment).defineInRange("netherrack.lapis.low"
         , 70, 0, 256
     );
-    lapisMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.high"
+    lapisMax = COMMON_BUILDER.comment(comment).defineInRange("netherrack.lapis.high"
         , 127, 0, 256
     );
-    redstoneMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.low"
+    redstoneMin = COMMON_BUILDER.comment(comment).defineInRange("end.redstone.low"
         , 1, 0, 256
     );
-    redstoneMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.high"
+    redstoneMax = COMMON_BUILDER.comment(comment).defineInRange("end.redstone.high"
         , 86, 0, 256
     );
-    diamondMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.low"
+    diamondMin = COMMON_BUILDER.comment(comment).defineInRange("netherrack.diamond.low"
         , 1, 0, 256
     );
-    diamondMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.high"
+    diamondMax = COMMON_BUILDER.comment(comment).defineInRange("netherrack.diamond.high"
         , 127, 0, 256
     );
-    emeraldMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.low"
+    emeraldMin = COMMON_BUILDER.comment(comment).defineInRange("end.emerald.low"
         , 1, 0, 256
     );
-    emeraldMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.high"
+    emeraldMax = COMMON_BUILDER.comment(comment).defineInRange("end.emerald.high"
         , 40, 0, 256
     );
-    enderMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.low"
+    enderMin = COMMON_BUILDER.comment(comment).defineInRange("end.ender.low"
         , 1, 0, 256
     );
-    enderMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.high"
+    enderMax = COMMON_BUILDER.comment(comment).defineInRange("end.ender.high"
         , 127, 0, 256
     );
     COMMON_BUILDER.pop();
