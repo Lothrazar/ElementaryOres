@@ -2,7 +2,6 @@ package com.lothrazar.elementaryores.setup;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.lothrazar.elementaryores.ModElemOres;
-import com.lothrazar.elementaryores.block.OresRegistry;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.nio.file.Path;
@@ -10,18 +9,18 @@ import java.nio.file.Path;
 public class ConfigHandler {
 
   private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
-  public static ForgeConfigSpec.IntValue GOLD_NETHERLOW  ;
-  public static ForgeConfigSpec.IntValue REDSTONE_ENDLOW  ;
-  public static ForgeConfigSpec.IntValue LAPIS_NETHERLOW  ;
+  public static ForgeConfigSpec.IntValue goldMin;
+  public static ForgeConfigSpec.IntValue redstoneMin;
+  public static ForgeConfigSpec.IntValue lapisMin;
   public static ForgeConfigSpec COMMON_CONFIG;
-  public static ForgeConfigSpec.IntValue GOLD_NETHER;
-  public static ForgeConfigSpec.IntValue LAPIS_NETHER;
-  public static ForgeConfigSpec.IntValue REDSTONE_END;
+  public static ForgeConfigSpec.IntValue goldVeinSize;
+  public static ForgeConfigSpec.IntValue lapisVeinSize;
+  public static ForgeConfigSpec.IntValue redstoneVeinSize;
 
 
-  public static ForgeConfigSpec.IntValue GOLD_NETHERHIGH  ;
-  public static ForgeConfigSpec.IntValue LAPIS_NETHERHIGH  ;
-  public static ForgeConfigSpec.IntValue REDSTONE_ENDHIGH  ;
+  public static ForgeConfigSpec.IntValue goldMax;
+  public static ForgeConfigSpec.IntValue lapisMax;
+  public static ForgeConfigSpec.IntValue redstoneMax;
 
   static {
     initConfig();
@@ -30,32 +29,32 @@ public class ConfigHandler {
   private static void initConfig() {
     COMMON_BUILDER.comment("General settings").push(ModElemOres.MODID);
     final String veinComment = "Vein Size";
-    GOLD_NETHER = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.size"
-        , 4, 0, 64
+    goldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.size"
+        , 6, 0, 64
     );
-    LAPIS_NETHER = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.size"
-        , 2, 0, 64
+    lapisVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.size"
+        , 3, 0, 64
     );
-    REDSTONE_END = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
-        , 1, 0, 64
+    redstoneVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
+        , 3, 0, 64
     );
-    GOLD_NETHERLOW = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
-        , 16, 0, 64
+    goldMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
+        , 16, 0, 256
     );
-    GOLD_NETHERHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.high"
-        , 85, 0, 64
+    goldMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.high"
+        , 85, 0, 256
     );
-    LAPIS_NETHERLOW = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.low"
-        , 70, 0, 64
+    lapisMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.low"
+        , 70, 0, 256
     );
-    LAPIS_NETHERHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.high"
-        , 127, 0, 64
+    lapisMax = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.high"
+        , 127, 0, 256
     );
-    REDSTONE_ENDLOW = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.low"
-        , 1, 0, 64
+    redstoneMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.low"
+        , 1, 0, 256
     );
-    REDSTONE_ENDHIGH = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.high"
-        , 62, 0, 64
+    redstoneMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.high"
+        , 68, 0, 256
     );
     COMMON_BUILDER.pop();
     COMMON_CONFIG = COMMON_BUILDER.build();

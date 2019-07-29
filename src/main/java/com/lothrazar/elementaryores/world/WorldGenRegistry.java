@@ -15,9 +15,15 @@ import net.minecraft.world.gen.placement.Placement;
 public class WorldGenRegistry {
 
   private static void initConfigs() {
-    OresRegistry.GOLD_NETHER.setVeinSize(ConfigHandler.GOLD_NETHER.get());
-    OresRegistry.LAPIS_NETHER.setVeinSize(ConfigHandler.LAPIS_NETHER.get());
-    OresRegistry.REDSTONE_END.setVeinSize(ConfigHandler.REDSTONE_END.get());
+    OresRegistry.GOLD_NETHER.setVeinSize(ConfigHandler.goldVeinSize);
+    OresRegistry.GOLD_NETHER.setMinSpawnY(ConfigHandler.goldMin);
+    OresRegistry.GOLD_NETHER.setMaxSpawnY(ConfigHandler.goldMax);
+    OresRegistry.LAPIS_NETHER.setVeinSize(ConfigHandler.lapisVeinSize);
+    OresRegistry.LAPIS_NETHER.setMinSpawnY(ConfigHandler.lapisMin);
+    OresRegistry.LAPIS_NETHER.setMaxSpawnY(ConfigHandler.lapisMax);
+    OresRegistry.REDSTONE_END.setVeinSize(ConfigHandler.redstoneVeinSize);
+    OresRegistry.REDSTONE_END.setMinSpawnY(ConfigHandler.redstoneMin);
+    OresRegistry.REDSTONE_END.setMaxSpawnY(ConfigHandler.redstoneMax);
   }
 
   public static void init() {

@@ -1,13 +1,13 @@
 package com.lothrazar.elementaryores.block;
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BlockElementaryOre extends Block {
 
-  int minSpawnY = 8;
-  int maxSpawnY = 256;
-
-  int veinSize = 0;
+  private ForgeConfigSpec.IntValue minSpawnY;
+  private ForgeConfigSpec.IntValue maxSpawnY;
+  private ForgeConfigSpec.IntValue veinSize;
 
   public BlockElementaryOre(Properties properties) {
     super(properties);
@@ -18,26 +18,26 @@ public class BlockElementaryOre extends Block {
   }
 
   public int getMinSpawnY() {
-    return minSpawnY;
+    return minSpawnY.get();
   }
 
-  public void setMinSpawnY(int minSpawnY) {
-    this.minSpawnY = minSpawnY;
+  public void setMinSpawnY(ForgeConfigSpec.IntValue value) {
+    this.minSpawnY = value;
   }
 
   public int getMaxSpawnY() {
-    return maxSpawnY;
+    return maxSpawnY.get();
   }
 
-  public void setMaxSpawnY(int maxSpawnY) {
+  public void setMaxSpawnY(ForgeConfigSpec.IntValue maxSpawnY) {
     this.maxSpawnY = maxSpawnY;
   }
 
   public int getVeinSize() {
-    return veinSize;
+    return veinSize.get();
   }
 
-  public void setVeinSize(int veinSize) {
+  public void setVeinSize(ForgeConfigSpec.IntValue veinSize) {
     this.veinSize = veinSize;
   }
 
