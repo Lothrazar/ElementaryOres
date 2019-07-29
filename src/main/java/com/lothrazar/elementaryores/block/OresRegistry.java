@@ -34,6 +34,8 @@ public class OresRegistry {
   public static BlockElementaryOre DIAMOND_NETHER;
   @ObjectHolder(ModElemOres.MODID + ":ore_emerald_end")
   public static BlockElementaryOre EMERALD_END;
+  @ObjectHolder(ModElemOres.MODID + ":ore_ender_end")
+  public static BlockElementaryOre ENDER_END;
 
   public static Block addBlock(Block b) {
     blocks.add(b);

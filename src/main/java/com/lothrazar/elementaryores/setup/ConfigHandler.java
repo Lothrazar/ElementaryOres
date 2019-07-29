@@ -18,15 +18,16 @@ public class ConfigHandler {
   public static ForgeConfigSpec.IntValue goldVeinSize;
   public static ForgeConfigSpec.IntValue lapisVeinSize;
   public static ForgeConfigSpec.IntValue redstoneVeinSize;
-
+  public static ForgeConfigSpec.IntValue enderVeinSize;
   public static ForgeConfigSpec.IntValue diamondVeinSize;
-  public static ForgeConfigSpec.IntValue emeraldVeinSize ;
-
+  public static ForgeConfigSpec.IntValue emeraldVeinSize;
   public static ForgeConfigSpec.IntValue goldMax;
   public static ForgeConfigSpec.IntValue lapisMax;
   public static ForgeConfigSpec.IntValue redstoneMax;
   public static ForgeConfigSpec.IntValue diamondMax;
   public static ForgeConfigSpec.IntValue emeraldMax;
+  public static ForgeConfigSpec.IntValue enderMax;
+  public static ForgeConfigSpec.IntValue enderMin;
 
   static {
     initConfig();
@@ -34,22 +35,27 @@ public class ConfigHandler {
 
   private static void initConfig() {
     COMMON_BUILDER.comment("General settings").push(ModElemOres.MODID);
-    final String veinComment = "Vein Size";
+    String veinComment = "Size of nether ore veins";
     goldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.size"
         , 6, 0, 64
     );
     lapisVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.lapis.size"
         , 3, 0, 64
     );
+    diamondVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.size"
+        , 1, 0, 64
+    );
+    veinComment = "How comoon are the End ore spawns";
     redstoneVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.redstone.size"
         , 3, 0, 64
     );
     emeraldVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.size"
-        , 1, 0, 64
+        , 6, 0, 64
     );
-    diamondVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.diamond.size"
-        , 1, 0, 64
+    enderVeinSize = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.size"
+        , 4, 0, 64
     );
+    veinComment = "Min and max y levels for spawn";
     goldMin = COMMON_BUILDER.comment(veinComment).defineInRange("netherrack.gold.low"
         , 16, 0, 256
     );
@@ -79,6 +85,12 @@ public class ConfigHandler {
     );
     emeraldMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.emerald.high"
         , 40, 0, 256
+    );
+    enderMin = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.low"
+        , 1, 0, 256
+    );
+    enderMax = COMMON_BUILDER.comment(veinComment).defineInRange("end.ender.high"
+        , 127, 0, 256
     );
     COMMON_BUILDER.pop();
     COMMON_CONFIG = COMMON_BUILDER.build();
