@@ -1,6 +1,6 @@
 package com.lothrazar.elementaryores.block;
+
 import net.minecraft.block.Block;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BlockElementaryOre extends Block {
@@ -12,10 +12,9 @@ public class BlockElementaryOre extends Block {
   public BlockElementaryOre(Properties properties) {
     super(properties);
   }
-
-  public BlockRenderLayer getRenderLayer() {
-    return BlockRenderLayer.CUTOUT;
-  }
+  //  public BlockRenderLayer getRenderLayer() {
+  //    return BlockRenderLayer.CUTOUT;
+  //  }
 
   public int getMinSpawnY() {
     return minSpawnY.get();
@@ -40,10 +39,4 @@ public class BlockElementaryOre extends Block {
   public void setVeinSize(ForgeConfigSpec.IntValue veinSize) {
     this.veinSize = veinSize;
   }
-
-
-
-
-
-
 }

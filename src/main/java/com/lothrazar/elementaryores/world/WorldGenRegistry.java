@@ -1,18 +1,15 @@
 package com.lothrazar.elementaryores.world;
-import com.google.common.collect.Lists;
+
+import com.lothrazar.elementaryores.block.BlockElementaryOre;
 import com.lothrazar.elementaryores.block.OresRegistry;
 import com.lothrazar.elementaryores.setup.ConfigHandler;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
 import net.minecraft.world.gen.feature.ReplaceBlockConfig;
-import net.minecraft.world.gen.feature.SphereReplaceConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 
 public class WorldGenRegistry {
@@ -38,50 +35,33 @@ public class WorldGenRegistry {
     OresRegistry.ENDER_END.setMaxSpawnY(ConfigHandler.enderMax);
   }
 
-  private static void initNetherOre() {
-    //nether gold
-    if (OresRegistry.GOLD_NETHER.getVeinSize() > 0) {
-      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
-          OresRegistry.GOLD_NETHER.getDefaultState(), 16), Placement.COUNT_RANGE, new CountRangeConfig(
-          OresRegistry.GOLD_NETHER.getVeinSize(), OresRegistry.GOLD_NETHER.getMinSpawnY(), 0, OresRegistry.GOLD_NETHER.getMaxSpawnY())));
-    }
-    //nether lapis
-    if (OresRegistry.LAPIS_NETHER.getVeinSize() > 0) {
-      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
-          OresRegistry.LAPIS_NETHER.getDefaultState(), 8), Placement.COUNT_RANGE, new CountRangeConfig(
-          OresRegistry.LAPIS_NETHER.getVeinSize(), OresRegistry.LAPIS_NETHER.getMinSpawnY(), 0, OresRegistry.LAPIS_NETHER.getMaxSpawnY()
-      )));
-    }
-    if (OresRegistry.DIAMOND_NETHER.getVeinSize() > 0) {
-      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(FillerBlockType.NETHERRACK,
-          OresRegistry.DIAMOND_NETHER.getDefaultState(), 8), Placement.COUNT_RANGE, new CountRangeConfig(
-          OresRegistry.DIAMOND_NETHER.getVeinSize(), OresRegistry.DIAMOND_NETHER.getMinSpawnY(), 0, OresRegistry.DIAMOND_NETHER.getMaxSpawnY()
-      )));
+  private static void registerSpawnNether(BlockElementaryOre ore, int size) {
+    if (ore.getVeinSize() > 0) {
+      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+          Feature.ORE.func_225566_b_(
+              new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, ore.getDefaultState(), size))
+              .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
+                  ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
     }
   }
 
-  private static void initEndOre() {
-    //end redstone
-    for (int i = 0; i < OresRegistry.REDSTONE_END.getVeinSize(); i++) {
-      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-          new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.REDSTONE_END.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
-              1, OresRegistry.REDSTONE_END.getMinSpawnY(), 0, OresRegistry.REDSTONE_END.getMaxSpawnY())));
-    }
-    for (int i = 0; i < OresRegistry.EMERALD_END.getVeinSize(); i++) {
-      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-          new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.EMERALD_END.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
-              1, OresRegistry.EMERALD_END.getMinSpawnY(), 0, OresRegistry.EMERALD_END.getMaxSpawnY())));
-    }
-    for (int i = 0; i < OresRegistry.ENDER_END.getVeinSize() ;i++){
-      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE,
-          new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), OresRegistry.ENDER_END.getDefaultState()), Placement.COUNT_RANGE, new CountRangeConfig(
-             1, OresRegistry.ENDER_END.getMinSpawnY(), 0, OresRegistry.ENDER_END.getMaxSpawnY())));
+  private static void registerSpawnEnd(BlockElementaryOre ore) {
+    for (int i = 0; i < ore.getVeinSize(); i++) {
+      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+          Feature.EMERALD_ORE.func_225566_b_(
+              new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), ore.getDefaultState()))
+              .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
+                  ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
     }
   }
 
   public static void init() {
     initConfigs();
-    initNetherOre();
-    initEndOre();
+    registerSpawnNether(OresRegistry.GOLD_NETHER, 16);
+    registerSpawnNether(OresRegistry.LAPIS_NETHER, 8);
+    registerSpawnNether(OresRegistry.DIAMOND_NETHER, 8);
+    registerSpawnEnd(OresRegistry.REDSTONE_END);
+    registerSpawnEnd(OresRegistry.EMERALD_END);
+    registerSpawnEnd(OresRegistry.ENDER_END);
   }
 }
