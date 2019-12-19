@@ -1,6 +1,8 @@
 package com.lothrazar.elementaryores.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BlockElementaryOre extends Block {
@@ -12,9 +14,12 @@ public class BlockElementaryOre extends Block {
   public BlockElementaryOre(Properties properties) {
     super(properties);
   }
-  //  public BlockRenderLayer getRenderLayer() {
-  //    return BlockRenderLayer.CUTOUT;
-  //  }
+
+  @Override
+  public BlockRenderType getRenderType(BlockState state) {
+    //whole mod broke, cutout is gone
+    return BlockRenderType.MODEL;
+  }
 
   public int getMinSpawnY() {
     return minSpawnY.get();
