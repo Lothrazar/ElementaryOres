@@ -1,4 +1,8 @@
 package com.lothrazar.elementaryores;
+
+import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.lothrazar.elementaryores.block.BlockElementaryOre;
 import com.lothrazar.elementaryores.block.OresRegistry;
 import com.lothrazar.elementaryores.setup.ClientProxy;
@@ -21,10 +25,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("elementaryores")
@@ -40,21 +40,16 @@ public class ModElemOres {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     //only for server starting
     MinecraftForge.EVENT_BUS.register(this);
-
     ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
   }
 
   private void setup(final FMLCommonSetupEvent event) {
-
-
     WorldGenRegistry.init();
-
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call
   @SubscribeEvent
-  public void onServerStarting(FMLServerStartingEvent event) {
-  }
+  public void onServerStarting(FMLServerStartingEvent event) {}
 
   // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
   // Event bus for receiving Registry Events)
@@ -66,28 +61,22 @@ public class ModElemOres {
       // register a new block here
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.GOLD)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_gold_nether")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_gold_nether")));
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.LAPIS)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_lapis_nether")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_lapis_nether")));
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.RED)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_redstone_end")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_redstone_end")));
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.DIAMOND)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_diamond_nether")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_diamond_nether")));
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.EMERALD)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_emerald_end")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_emerald_end")));
       event.getRegistry().register(
           OresRegistry.addBlock(new BlockElementaryOre(Block.Properties.create(Material.ROCK, MaterialColor.EMERALD)
-              .hardnessAndResistance(2.6F)
-          ).setRegistryName("ore_ender_end")));
+              .hardnessAndResistance(2.6F)).setRegistryName("ore_ender_end")));
     }
 
     @SubscribeEvent
