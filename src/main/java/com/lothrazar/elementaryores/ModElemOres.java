@@ -13,13 +13,18 @@ import com.lothrazar.elementaryores.world.WorldGenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -41,6 +46,16 @@ public class ModElemOres {
     //only for server starting
     MinecraftForge.EVENT_BUS.register(this);
     ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
+    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
+  }
+
+  @OnlyIn(Dist.CLIENT)
+  @SubscribeEvent
+  public void onClientSetup(FMLClientSetupEvent e) {
+    RenderType cutout = RenderType.func_228643_e_();
+    for (Block b : OresRegistry.getBlocks()) {
+      RenderTypeLookup.setRenderLayer(b, cutout);
+    }
   }
 
   private void setup(final FMLCommonSetupEvent event) {
