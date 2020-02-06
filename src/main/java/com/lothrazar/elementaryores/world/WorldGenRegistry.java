@@ -38,7 +38,7 @@ public class WorldGenRegistry {
   private static void registerSpawnNether(BlockElementaryOre ore, int size) {
     if (ore.getVeinSize() > 0) {
       Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-          Feature.ORE.func_225566_b_(
+          Feature.ORE.withConfiguration(
               new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, ore.getDefaultState(), size))
               .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
                   ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
@@ -48,7 +48,7 @@ public class WorldGenRegistry {
   private static void registerSpawnEnd(BlockElementaryOre ore) {
     for (int i = 0; i < ore.getVeinSize(); i++) {
       Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-          Feature.EMERALD_ORE.func_225566_b_(
+          Feature.EMERALD_ORE.withConfiguration(
               new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), ore.getDefaultState()))
               .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
                   ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));

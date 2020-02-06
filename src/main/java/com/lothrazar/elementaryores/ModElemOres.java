@@ -52,7 +52,7 @@ public class ModElemOres {
   @OnlyIn(Dist.CLIENT)
   @SubscribeEvent
   public void onClientSetup(FMLClientSetupEvent e) {
-    RenderType cutout = RenderType.func_228643_e_();
+    RenderType cutout = RenderType.cutout();
     for (Block b : OresRegistry.getBlocks()) {
       RenderTypeLookup.setRenderLayer(b, cutout);
     }
