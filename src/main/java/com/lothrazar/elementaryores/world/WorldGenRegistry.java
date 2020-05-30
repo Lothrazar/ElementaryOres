@@ -40,7 +40,7 @@ public class WorldGenRegistry {
       Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
           Feature.ORE.withConfiguration(
               new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, ore.getDefaultState(), size))
-              .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
+              .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(
                   ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
     }
   }
@@ -50,7 +50,7 @@ public class WorldGenRegistry {
       Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
           Feature.EMERALD_ORE.withConfiguration(
               new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), ore.getDefaultState()))
-              .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(
+              .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(
                   ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
     }
   }
