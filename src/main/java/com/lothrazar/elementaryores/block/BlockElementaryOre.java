@@ -3,8 +3,6 @@ package com.lothrazar.elementaryores.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BlockElementaryOre extends Block {
@@ -21,11 +19,6 @@ public class BlockElementaryOre extends Block {
   public BlockRenderType getRenderType(BlockState state) {
     //whole mod broke, cutout is gone
     return BlockRenderType.MODEL;
-  }
-
-  @Override
-  public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
-    return true;
   }
 
   public int getMinSpawnY() {

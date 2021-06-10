@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "elementaryores:block/ore_emerald_nether"
+        }
+    }
+}

@@ -1,7 +1,6 @@
-package com.lothrazar.elementaryores.setup;
+package com.lothrazar.elementaryores;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
-import com.lothrazar.elementaryores.ModElemOres;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.nio.file.Path;

@@ -1,67 +1,54 @@
 package com.lothrazar.elementaryores.world;
 
-import com.lothrazar.elementaryores.block.BlockElementaryOre;
-import com.lothrazar.elementaryores.block.OresRegistry;
-import com.lothrazar.elementaryores.setup.ConfigHandler;
+import com.lothrazar.elementaryores.ConfigHandler;
+import com.lothrazar.elementaryores.ModElemOres;
+import com.lothrazar.elementaryores.ModRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.ReplaceBlockConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
 public class WorldGenRegistry {
 
-  private static void initConfigs() {
-    OresRegistry.GOLD_NETHER.setVeinSize(ConfigHandler.goldVeinSize);
-    OresRegistry.GOLD_NETHER.setMinSpawnY(ConfigHandler.goldMin);
-    OresRegistry.GOLD_NETHER.setMaxSpawnY(ConfigHandler.goldMax);
-    OresRegistry.LAPIS_NETHER.setVeinSize(ConfigHandler.lapisVeinSize);
-    OresRegistry.LAPIS_NETHER.setMinSpawnY(ConfigHandler.lapisMin);
-    OresRegistry.LAPIS_NETHER.setMaxSpawnY(ConfigHandler.lapisMax);
-    OresRegistry.REDSTONE_END.setVeinSize(ConfigHandler.redstoneVeinSize);
-    OresRegistry.REDSTONE_END.setMinSpawnY(ConfigHandler.redstoneMin);
-    OresRegistry.REDSTONE_END.setMaxSpawnY(ConfigHandler.redstoneMax);
-    OresRegistry.DIAMOND_NETHER.setVeinSize(ConfigHandler.diamondVeinSize);
-    OresRegistry.DIAMOND_NETHER.setMinSpawnY(ConfigHandler.diamondMin);
-    OresRegistry.DIAMOND_NETHER.setMaxSpawnY(ConfigHandler.diamondMax);
-    OresRegistry.EMERALD_END.setVeinSize(ConfigHandler.emeraldVeinSize);
-    OresRegistry.EMERALD_END.setMinSpawnY(ConfigHandler.emeraldMin);
-    OresRegistry.EMERALD_END.setMaxSpawnY(ConfigHandler.emeraldMax);
-    OresRegistry.ENDER_END.setVeinSize(ConfigHandler.enderVeinSize);
-    OresRegistry.ENDER_END.setMinSpawnY(ConfigHandler.enderMin);
-    OresRegistry.ENDER_END.setMaxSpawnY(ConfigHandler.enderMax);
+  public static ConfiguredFeature<?, ?> EMERALD_NETHER = buildNetherOre(ModRegistry.EMERALD_NETHER.get(),
+      ConfigHandler.emeraldVeinSize.get(), ConfigHandler.emeraldMax.get(), 60);
+
+  public static ConfiguredFeature<?, ?> buildOverworldOre(Block bstate, int veinSize, int maxHeight, int timesRarer) {
+    return Feature.ORE.withConfiguration(
+        new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
+            bstate.getDefaultState(), veinSize))
+        .withPlacement(Placement.RANGE.configure(
+            new TopSolidRangeConfig(0, 0, maxHeight)))
+        .square().chance(timesRarer);
   }
 
-  private static void registerSpawnNether(BlockElementaryOre ore, int size) {
-    if (ore.getVeinSize() > 0) {
-      Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-          Feature.ORE.withConfiguration(
-              new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, ore.getDefaultState(), size))
-              .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(
-                  ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
-    }
+  public static ConfiguredFeature<?, ?> buildNetherOre(Block block, int veinSize, int maxHeight, int timesRarer) {
+    return Feature.ORE.withConfiguration(
+        new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, block.getDefaultState(), veinSize))
+        .square()
+        .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(0, 0, maxHeight)))
+        .chance(50);
   }
 
-  private static void registerSpawnEnd(BlockElementaryOre ore) {
-    for (int i = 0; i < ore.getVeinSize(); i++) {
-      Biomes.THE_END.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-          Feature.EMERALD_ORE.withConfiguration(
-              new ReplaceBlockConfig(Blocks.END_STONE.getDefaultState(), ore.getDefaultState()))
-              .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(
-                  ore.getVeinSize(), ore.getMinSpawnY(), 0, ore.getMaxSpawnY()))));
-    }
+  public static ConfiguredFeature<?, ?> buildEndOre(BlockState bstate, int veinSize, int maxHeight, int timesRarer) {
+    return Feature.ORE.withConfiguration(
+        new OreFeatureConfig(new BlockMatchRuleTest(Blocks.END_STONE), bstate, veinSize))
+        .square()
+        .withPlacement(Placement.RANGE.configure(
+            new TopSolidRangeConfig(0, 0, maxHeight)))
+        .chance(timesRarer);
   }
 
   public static void init() {
-    initConfigs();
-    registerSpawnNether(OresRegistry.GOLD_NETHER, 16);
-    registerSpawnNether(OresRegistry.LAPIS_NETHER, 8);
-    registerSpawnNether(OresRegistry.DIAMOND_NETHER, 8);
-    registerSpawnEnd(OresRegistry.REDSTONE_END);
-    registerSpawnEnd(OresRegistry.EMERALD_END);
-    registerSpawnEnd(OresRegistry.ENDER_END);
+    Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
+    Registry.register(registry, new ResourceLocation(ModElemOres.MODID, "emeraldnether"), EMERALD_NETHER);
   }
 }
