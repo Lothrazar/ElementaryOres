@@ -1,0 +1,9 @@
+{
+    "parent": "elementaryores:parent/ore",
+    "textures":
+    {
+        "face": "minecraft:block/netherrack",
+        "overlay": "elementaryores:block/iron",
+        "particle": "minecraft:block/netherrack"
+    }
+}

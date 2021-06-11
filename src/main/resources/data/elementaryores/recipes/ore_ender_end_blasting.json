@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "elementaryores:ore_ender_end"
-  },
-  "result": "minecraft:ender_pearl",
-  "experience": 1.0,
-  "cookingtime": 100
-}
