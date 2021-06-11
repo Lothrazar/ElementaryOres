@@ -23,6 +23,8 @@ public class ModRegistry {
       return new ItemStack(ModRegistry.EMERALD_NETHER.get());
     }
   };
+  //a randomizer? 
+  // GUNPOWDER  // GLOWSTONE DUST // GHAST TEAR // BLAZE POWDER
   public static final RegistryObject<Block> IRON_NETHER = BLOCKS.register("ore_iron_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
   public static final RegistryObject<Block> EMERALD_NETHER = BLOCKS.register("ore_emerald_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
   public static final RegistryObject<Block> DIAMOND_NETHER = BLOCKS.register("ore_diamond_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
