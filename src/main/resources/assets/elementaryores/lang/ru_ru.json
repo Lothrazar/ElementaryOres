@@ -1,0 +1,12 @@
+{
+  "itemGroup.elementaryores": "Elementary Ores",
+  "block.elementaryores.ore_diamond_nether": "Адская алмазная руда",
+  "block.elementaryores.ore_diamond_end": "Алмазная руда края",
+  "block.elementaryores.ore_lapis_nether": "Адская лазуритовая руда",
+  "block.elementaryores.ore_lapis_end": "Лазуритовая руда края",
+  "block.elementaryores.ore_redstone_end": "Красная руда края",
+  "block.elementaryores.ore_iron_nether": "Адская железная руда",
+  "block.elementaryores.ore_emerald_end": "Изумрудная руда края",
+  "block.elementaryores.ore_emerald_nether": "Адская изумрудная руда",
+  "block.elementaryores.ore_ender_end": "Руда края"
+}
