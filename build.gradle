@@ -96,6 +96,8 @@ dependencies {
 
 
     implementation fg.deobf("curse.maven:plain-grinder-452000:3226877")
+    
+    implementation fg.deobf("curse.maven:world-stripper-250603:3341936")
 
   //  implementation fg.deobf("curse.maven:simple-storage-network-268495:3257204")
   //  implementation fg.deobf("curse.maven:cyclic-239286:3249448")
