@@ -1,6 +1,7 @@
 package com.lothrazar.elementaryores;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -25,15 +26,15 @@ public class ModRegistry {
   };
   //a randomizer? 
   // GUNPOWDER  // GLOWSTONE DUST // GHAST TEAR // BLAZE POWDER
-  public static final RegistryObject<Block> IRON_NETHER = BLOCKS.register("ore_iron_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> EMERALD_NETHER = BLOCKS.register("ore_emerald_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> DIAMOND_NETHER = BLOCKS.register("ore_diamond_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> LAPIS_NETHER = BLOCKS.register("ore_lapis_nether", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> EMERALD_END = BLOCKS.register("ore_emerald_end", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> DIAMOND_END = BLOCKS.register("ore_diamond_end", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new Block(Block.Properties.create(Material.ROCK)));
-  public static final RegistryObject<Block> ENDER_END = BLOCKS.register("ore_ender_end", () -> new Block(Block.Properties.create(Material.ROCK)));
+  public static final RegistryObject<Block> IRON_NETHER = BLOCKS.register("ore_iron_nether", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.IRON_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> EMERALD_NETHER = BLOCKS.register("ore_emerald_nether", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.EMERALD_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> LAPIS_NETHER = BLOCKS.register("ore_lapis_nether", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.LAPIS_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> DIAMOND_NETHER = BLOCKS.register("ore_diamond_nether", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.DIAMOND_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> EMERALD_END = BLOCKS.register("ore_emerald_end", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.EMERALD_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> DIAMOND_END = BLOCKS.register("ore_diamond_end", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.DIAMOND_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.LAPIS_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.REDSTONE_ORE.getDefaultState().hardness)));
+  public static final RegistryObject<Block> ENDER_END = BLOCKS.register("ore_ender_end", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(Blocks.DIAMOND_ORE.getDefaultState().hardness)));
   static {
     ITEMS.register("ore_iron_nether", () -> new BlockItem(IRON_NETHER.get(), new Item.Properties().group(ModRegistry.itemGroup)));
     ITEMS.register("ore_emerald_nether", () -> new BlockItem(EMERALD_NETHER.get(), new Item.Properties().group(ModRegistry.itemGroup)));
