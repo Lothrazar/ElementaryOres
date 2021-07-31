@@ -2,29 +2,30 @@ package com.lothrazar.elementaryores.world;
 
 import com.lothrazar.elementaryores.ModElemOres;
 import com.lothrazar.elementaryores.ModRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
-import net.minecraft.world.gen.feature.template.RuleTest;
-import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
 
 public class WorldGenRegistry {
 
   private static final int SPREAD = 50;
-  public static final RuleTest OW = new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD);
-  private static final RuleTest NETHER = new BlockMatchRuleTest(Blocks.NETHERRACK); // OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER;
-  private static final RuleTest END = new BlockMatchRuleTest(Blocks.END_STONE);
+  public static final RuleTest OW = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
+  private static final RuleTest NETHER = new BlockMatchTest(Blocks.NETHERRACK); // OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER;
+  private static final RuleTest END = new BlockMatchTest(Blocks.END_STONE);
   // end ores
-  //WHY DOES only redstone and emerald work in the end?
   public static final ConfiguredFeature<?, ?> REDSTONE_END = buildOreFeature(END, ModRegistry.REDSTONE_END.get(),
       ConfigHandler.End.REDSTONEVEINSIZE.get(), ConfigHandler.End.REDSTONEMIN.get(), ConfigHandler.End.REDSTONEMAX.get(), SPREAD);
   public static final ConfiguredFeature<?, ?> ENDER_END = buildOreFeature(END, ModRegistry.ENDER_END.get(),
@@ -35,7 +36,7 @@ public class WorldGenRegistry {
       ConfigHandler.End.DIAMONDVEINSIZE.get(), ConfigHandler.End.DIAMONDMIN.get(), ConfigHandler.End.DIAMONDMAX.get(), SPREAD);
   public static final ConfiguredFeature<?, ?> LAPIS_END = buildOreFeature(END, ModRegistry.LAPIS_END.get(),
       ConfigHandler.End.LAPISVEINSIZE.get(), ConfigHandler.End.LAPISMIN.get(), ConfigHandler.End.LAPISMAX.get(), SPREAD);
-  //
+
   //nether
   public static final ConfiguredFeature<?, ?> DIAMOND_NETHER = buildOreFeature(NETHER, ModRegistry.DIAMOND_NETHER.get(),
       ConfigHandler.Nether.DIAMONDVEINSIZE.get(), ConfigHandler.Nether.DIAMONDMIN.get(), ConfigHandler.Nether.DIAMONDMAX.get(), SPREAD);
@@ -47,14 +48,16 @@ public class WorldGenRegistry {
       ConfigHandler.Nether.EMERALDVEINSIZE.get(), ConfigHandler.Nether.EMERALDMIN.get(), ConfigHandler.Nether.EMERALDMAX.get(), SPREAD);
 
   public static ConfiguredFeature<?, ?> buildOreFeature(RuleTest rule, Block block, int size, int minHeight, int maxHeight, int spread) {
-    return Feature.ORE.withConfiguration(new OreFeatureConfig(rule, block.getDefaultState(), size)).func_242731_b(spread).square()
-        .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight)
-        //wtf
-        )); // 
+    return Feature.ORE.configured(new OreConfiguration(rule, block.defaultBlockState(), size)).count(spread).squared()
+        .decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(
+                UniformHeight.of(VerticalAnchor.aboveBottom(minHeight), VerticalAnchor.absolute(maxHeight))
+            )
+        //
+        ));
   }
 
   public static void init() {
-    Registry<ConfiguredFeature<?, ?>> r = WorldGenRegistries.CONFIGURED_FEATURE;
+    Registry<ConfiguredFeature<?, ?>> r = BuiltinRegistries.CONFIGURED_FEATURE;
     Registry.register(r, new ResourceLocation(ModElemOres.MODID, "iron_nether"), IRON_NETHER);
     Registry.register(r, new ResourceLocation(ModElemOres.MODID, "emerald_nether"), EMERALD_NETHER);
     Registry.register(r, new ResourceLocation(ModElemOres.MODID, "diamond_nether"), DIAMOND_NETHER);

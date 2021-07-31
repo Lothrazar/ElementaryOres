@@ -81,7 +81,7 @@ public class ConfigHandler {
     End.DIAMONDVEINSIZE = CFG.comment(commentSize).defineInRange("end.diamond.size", 3, 0, 64);
     End.LAPISMIN = CFG.comment(commentLowest).defineInRange("end.lapis.lowest", 1, 0, 256);
     End.LAPISMAX = CFG.comment(commentLowest).defineInRange("end.lapis.highest", 256, 0, 256);
-    End.LAPISVEINSIZE = CFG.comment(commentSize).defineInRange("end.lapis.size", 2, 0, 64);
+    End.LAPISVEINSIZE = CFG.comment(commentSize).defineInRange("end.lapis.size", 8, 0, 64);
     CFG.pop();
     COMMON_CONFIG = CFG.build();
   }
