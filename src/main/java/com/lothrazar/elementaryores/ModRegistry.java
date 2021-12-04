@@ -1,16 +1,16 @@
 package com.lothrazar.elementaryores;
 
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModRegistry {
@@ -35,6 +35,7 @@ public class ModRegistry {
   public static final RegistryObject<Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.REDSTONE_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> ENDER_END = BLOCKS.register("ore_ender_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
+
   static {
     ITEMS.register("ore_iron_nether", () -> new BlockItem(IRON_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
     ITEMS.register("ore_emerald_nether", () -> new BlockItem(EMERALD_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
