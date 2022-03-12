@@ -18,18 +18,18 @@ public class BiomeLoader {
     BiomeGenerationSettingsBuilder r = event.getGeneration();
     if (event.getCategory() == Biome.BiomeCategory.NETHER) {
       //if true // vein size > 0
-      r.addFeature(d, WorldGenRegistry.EMERALD_NETHER);
-      r.addFeature(d, WorldGenRegistry.DIAMOND_NETHER);
-      r.addFeature(d, WorldGenRegistry.LAPIS_NETHER);
-      r.addFeature(d, WorldGenRegistry.IRON_NETHER);
+      r.addFeature(d, WorldGenRegistry.EMERALD_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.DIAMOND_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.LAPIS_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.IRON_NETHER_PLACED);
     }
     else if (event.getCategory() == Biome.BiomeCategory.THEEND) {
       //if true // vein size > 0
-      r.addFeature(d, WorldGenRegistry.REDSTONE_END);
-      r.addFeature(d, WorldGenRegistry.EMERALD_END);
-      r.addFeature(d, WorldGenRegistry.DIAMOND_END);
-      r.addFeature(d, WorldGenRegistry.ENDER_END);
-      r.addFeature(d, WorldGenRegistry.LAPIS_END);
+      r.addFeature(d, WorldGenRegistry.REDSTONE_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.EMERALD_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.DIAMOND_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.ENDER_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.LAPIS_END_PLACED);
     }
   }
 }
