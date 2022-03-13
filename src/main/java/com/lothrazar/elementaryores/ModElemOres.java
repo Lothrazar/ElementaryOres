@@ -11,14 +11,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mod(ModElemOres.MODID)
 public class ModElemOres {
 
   public static final String MODID = "elementaryores";
-  public static final Logger LOGGER = LogManager.getLogger();
 
   public ModElemOres() {
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
