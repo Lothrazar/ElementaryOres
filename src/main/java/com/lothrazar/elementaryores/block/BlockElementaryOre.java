@@ -3,7 +3,9 @@ package com.lothrazar.elementaryores.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ToolType;
 
 public class BlockElementaryOre extends Block {
 
@@ -11,13 +13,13 @@ public class BlockElementaryOre extends Block {
   private ForgeConfigSpec.IntValue maxSpawnY;
   private ForgeConfigSpec.IntValue veinSize;
 
-  public BlockElementaryOre(Properties properties) {
-    super(properties);
+  public BlockElementaryOre(Block copy) {
+    super(Block.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(copy.getDefaultState().hardness)
+        .harvestTool(ToolType.PICKAXE).harvestLevel(copy.getHarvestLevel(copy.getDefaultState())));
   }
 
   @Override
   public BlockRenderType getRenderType(BlockState state) {
-    //whole mod broke, cutout is gone
     return BlockRenderType.MODEL;
   }
 
