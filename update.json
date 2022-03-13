@@ -1,10 +1,12 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/elementary-ores",
   "promos": {
-    "1.17.1-latest": "1.0.1",
-    "1.17.1-recommended": "1.0.1"
+    "1.18.2-latest": "1.0.3"
   },
-  "1.17.1": {
-    "1.0.1": "Ported "
+  "1.18.2": {
+    "1.0.0": "Release "
+  ,  "1.0.1": "Fix buggy block hardness.  Fix loot table error from latest.log. Fix configs not correctly setting up minimum height values.  Fixed ore spread values which fixes some ores not spawning at all.  "
+  ,"1.0.2":"Fix hardness, mining level, mining tool type, and loot tables"
+  ,"1.0.3": "Ported 1.17 to 1.18 by MrBysco.  Added russian translation. Author: xRoBoTx "
   }
 }

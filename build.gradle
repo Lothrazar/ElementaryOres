@@ -15,9 +15,6 @@ apply plugin: 'maven-publish'
 apply plugin: 'checkstyle'
 apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
-import net.minecraftforge.gradle.common.tasks.SignJar
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
 
 version = "${mc_version}-${mod_version}"
 group = 'com.lothrazar.elementaryores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -169,25 +166,10 @@ publishing {
     }
 }
 
-task signJar(type: SignJar, dependsOn: jar) {
-
-    keyStore = project.findProperty('keyStore')
-    alias = project.findProperty('keyStoreAlias')
-    storePass = project.findProperty('keyStorePass')
-    keyPass = project.findProperty('keyStoreKeyPass')
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
-}
-
-
-build.dependsOn signJar
-
 task copyJar(type: Copy) {
     from jar
     into "${dist_folder}"
 }
-
-build.finalizedBy copyJar
 
 task cleanJar {
   delete 'build/libs'
