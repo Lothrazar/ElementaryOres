@@ -5,11 +5,12 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientOreRegistry {
 
   @OnlyIn(Dist.CLIENT)
-  public static void setup() {
+  public static void setup(FMLClientSetupEvent event) {
     RenderType c = RenderType.cutout();
     ItemBlockRenderTypes.setRenderLayer(ModRegistry.EMERALD_NETHER.get(), c);
     ItemBlockRenderTypes.setRenderLayer(ModRegistry.DIAMOND_NETHER.get(), c);
