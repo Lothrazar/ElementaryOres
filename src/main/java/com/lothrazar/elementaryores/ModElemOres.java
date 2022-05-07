@@ -22,7 +22,6 @@ public class ModElemOres {
     ModRegistry.ITEMS.register(eventBus);
     eventBus.addListener(this::setup);
     ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
-
     DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
       eventBus.addListener(ClientOreRegistry::setup);
     });
