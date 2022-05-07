@@ -22,6 +22,9 @@ public class BiomeLoader {
       r.addFeature(d, WorldGenRegistry.DIAMOND_NETHER_PLACED);
       r.addFeature(d, WorldGenRegistry.LAPIS_NETHER_PLACED);
       r.addFeature(d, WorldGenRegistry.IRON_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.COAL_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.COPPER_NETHER_PLACED);
+      r.addFeature(d, WorldGenRegistry.GHAST_NETHER_PLACED);
     }
     else if (event.getCategory() == Biome.BiomeCategory.THEEND) {
       //if true // vein size > 0
@@ -30,6 +33,8 @@ public class BiomeLoader {
       r.addFeature(d, WorldGenRegistry.DIAMOND_END_PLACED);
       r.addFeature(d, WorldGenRegistry.ENDER_END_PLACED);
       r.addFeature(d, WorldGenRegistry.LAPIS_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.COAL_END_PLACED);
+      r.addFeature(d, WorldGenRegistry.COPPER_END_PLACED);
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "elementaryores:ore_copper_nether",
+    "elementaryores:ore_copper_end"
+  ]
+}

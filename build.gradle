@@ -1,7 +1,6 @@
 buildscript {
     repositories {
-	maven { url = 'https://maven.minecraftforge.net' } 
-        maven { url = 'https://files.minecraftforge.net/maven' }
+	    maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
@@ -12,8 +11,8 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-apply plugin: 'checkstyle'
-apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
+//apply plugin: 'checkstyle'
+//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 
 version = "${mc_version}-${mod_version}"
@@ -21,14 +20,14 @@ group = 'com.lothrazar.elementaryores' // http://maven.apache.org/guides/mini/gu
 archivesBaseName = 'elementaryores'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-checkstyle {
-    toolVersion '8.23'
-    config project.resources.text.fromUri("https://raw.githubusercontent.com/Lothrazar/Cyclic/trunk/1.16/checkstyle.xml")
-}
-checkstyleMain {
-    source ='src/main/java'
-}
+//
+//checkstyle {
+//    toolVersion '8.23'
+//    config project.resources.text.fromUri("https://raw.githubusercontent.com/Lothrazar/Cyclic/trunk/1.16/checkstyle.xml")
+//}
+//checkstyleMain {
+//    source ='src/main/java'
+//}
 
 minecraft {
  mappings channel: 'official', version: '1.18.2'

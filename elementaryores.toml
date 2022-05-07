@@ -4,131 +4,201 @@
 
 	[elementaryores.nether]
 
-		[elementaryores.nether.emerald]
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 128
-			lowest = 1
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 128
-			highest = 128
+		[elementaryores.nether.diamond]
 			#
 			# Registered worldgen feature size
 			#Range: 0 ~ 64
 			size = 4
-
-		[elementaryores.nether.iron]
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			lowest = 1
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 128
 			highest = 128
 			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			lowest = 1
+
+		[elementaryores.nether.iron]
+			#
 			# Registered worldgen feature size
 			#Range: 0 ~ 64
 			size = 16
-
-		[elementaryores.nether.lapis]
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			highest = 128
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
-			lowest = 0
+			lowest = 1
+
+		[elementaryores.nether.coal]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 4
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			highest = 128
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			lowest = 1
+
+		[elementaryores.nether.copper]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 4
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			highest = 128
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			lowest = 1
+
+		[elementaryores.nether.lapis]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 8
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 128
 			highest = 120
 			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			lowest = 0
+
+		[elementaryores.nether.ghast]
+			#
 			# Registered worldgen feature size
 			#Range: 0 ~ 64
-			size = 8
-
-		[elementaryores.nether.diamond]
+			size = 1
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			highest = 32
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 128
 			lowest = 1
+
+		[elementaryores.nether.emerald]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 4
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 128
 			highest = 128
 			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 4
+			# Min and max y levels for spawn
+			#Range: 0 ~ 128
+			lowest = 1
 
 	[elementaryores.end]
 
-		[elementaryores.end.redstone]
+		[elementaryores.end.diamond]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 3
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			highest = 256
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
 			lowest = 1
+
+		[elementaryores.end.coal]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 2
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			highest = 256
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			lowest = 1
+
+		[elementaryores.end.copper]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 2
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			highest = 256
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			lowest = 1
+
+		[elementaryores.end.ender]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 16
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			highest = 256
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			lowest = 1
+
+		[elementaryores.end.lapis]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 8
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			highest = 256
+			#
+			# Min and max y levels for spawn
+			#Range: 0 ~ 256
+			lowest = 1
+
+		[elementaryores.end.redstone]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 4
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
 			highest = 128
 			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 4
-
-		[elementaryores.end.emerald]
-			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
 			lowest = 1
+
+		[elementaryores.end.emerald]
+			#
+			# Registered worldgen feature size
+			#Range: 0 ~ 64
+			size = 4
 			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
 			highest = 60
 			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 4
-
-		[elementaryores.end.ender]
-			#
 			# Min and max y levels for spawn
 			#Range: 0 ~ 256
 			lowest = 1
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			highest = 256
-			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 16
-
-		[elementaryores.end.diamond]
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			lowest = 1
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			highest = 256
-			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 3
-
-		[elementaryores.end.lapis]
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			lowest = 1
-			#
-			# Min and max y levels for spawn
-			#Range: 0 ~ 256
-			highest = 256
-			#
-			# Registered worldgen feature size
-			#Range: 0 ~ 64
-			size = 2
 

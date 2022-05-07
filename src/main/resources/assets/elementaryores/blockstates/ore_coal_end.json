@@ -1,0 +1,8 @@
+{
+ "forge_marker": 1,
+    "variants": {
+        "": {
+            "model": "elementaryores:block/ore_coal_end"
+        }
+    }
+}

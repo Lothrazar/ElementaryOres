@@ -1,0 +1,9 @@
+{
+    "parent": "elementaryores:parent/ore",
+    "textures":
+    {
+        "face": "minecraft:block/end_stone",
+        "overlay": "elementaryores:block/coal",
+        "particle": "minecraft:block/end_stone"
+    }
+}
