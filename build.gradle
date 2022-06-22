@@ -1,18 +1,8 @@
-buildscript {
-    repositories {
-	    maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-//apply plugin: 'checkstyle'
-//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 
 version = "${mc_version}-${mod_version}"
@@ -20,17 +10,10 @@ group = 'com.lothrazar.elementaryores' // http://maven.apache.org/guides/mini/gu
 archivesBaseName = 'elementaryores'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-//
-//checkstyle {
-//    toolVersion '8.23'
-//    config project.resources.text.fromUri("https://raw.githubusercontent.com/Lothrazar/Cyclic/trunk/1.16/checkstyle.xml")
-//}
-//checkstyleMain {
-//    source ='src/main/java'
-//}
+
 
 minecraft {
- mappings channel: 'official', version: '1.18.2'
+ mappings channel: 'official', version: '1.19'
  
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -70,9 +53,26 @@ minecraft {
             }
         }
 
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                examplemod {
+                    source sourceSets.main
+                }
+            }
+        }
     }
 }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
@@ -80,7 +80,14 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    implementation fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+
+	 // https://github.com/mezz/JustEnoughItems/wiki/Getting-Started-%5BJEI-10-or-higher-for-Forge-or-Fabric%5D#repositories
+	  compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+	  compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
+	  // at runtime, use the full JEI
+	  runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-common:${jei_version}")
+	  runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+	  
  //   compile fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
  //   compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
  //   runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
