@@ -1,7 +1,7 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/elementary-ores",
 	"promos": {
-		"1.18.2-latest": "1.1.0"
+		"1.18.2-latest": "1.1.1"
 	},
 	"1.18.2": {
 		"1.0.0": "Release ",
@@ -9,6 +9,7 @@
 		"1.0.2": "Fix hardness, mining level, mining tool type, and loot tables",
 		"1.0.3": "Ported 1.17 to 1.18 by MrBysco.  Added russian translation. Author: xRoBoTx ",
 		"1.0.4": "Fix server startup crash (MrBysco)",
-		"1.1.0":"Fix pickaxe mineable tag. Add Spread to all configs. Added End Coal Ore, End Copper Ore, Nether Coal Ore, Nether Copper Ore, Nether Ghast Ore (drops ghast tears). Any ore gen can be disabled by setting vein size = 0 in config"
+		"1.1.0":"Fix pickaxe mineable tag. Add Spread to all configs. Added End Coal Ore, End Copper Ore, Nether Coal Ore, Nether Copper Ore, Nether Ghast Ore (drops ghast tears). Any ore gen can be disabled by setting vein size = 0 in config",
+		"1.1.1":"Fix ghast ore loot table"
 	}
 }

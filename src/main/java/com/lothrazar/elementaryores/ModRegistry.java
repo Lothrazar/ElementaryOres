@@ -36,6 +36,7 @@ public class ModRegistry {
   public static final RegistryObject<Block> COAL_END = BLOCKS.register("ore_coal_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> COPPER_END = BLOCKS.register("ore_copper_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.COPPER_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.REDSTONE_ORE.defaultBlockState().destroySpeed)));
+  //  public static final RegistryObject<Block> IRON_END = BLOCKS.register("ore_iron_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.IRON_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> EMERALD_END = BLOCKS.register("ore_emerald_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.EMERALD_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
   public static final RegistryObject<Block> DIAMOND_END = BLOCKS.register("ore_diamond_end", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));

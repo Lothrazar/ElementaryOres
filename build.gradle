@@ -11,8 +11,6 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-//apply plugin: 'checkstyle'
-//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 
 version = "${mc_version}-${mod_version}"
@@ -20,14 +18,6 @@ group = 'com.lothrazar.elementaryores' // http://maven.apache.org/guides/mini/gu
 archivesBaseName = 'elementaryores'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-//
-//checkstyle {
-//    toolVersion '8.23'
-//    config project.resources.text.fromUri("https://raw.githubusercontent.com/Lothrazar/Cyclic/trunk/1.16/checkstyle.xml")
-//}
-//checkstyleMain {
-//    source ='src/main/java'
-//}
 
 minecraft {
  mappings channel: 'official', version: '1.18.2'
@@ -110,26 +100,17 @@ repositories {
     name = "Progwml6 maven"
     url = 'https://dvs1.progwml6.com/files/maven/'
   }
-//  maven {
-//    name = "mappings"
-//    url = 'https://dogforce-games.com/maven'
-//  }
-//  maven {
-//    // location of a maven mirror for JEI files, as a fallback
-//    name = "ModMaven"
-//    url = 'https://modmaven.k-4u.nl'
-//  }
+  maven {
+    name = "mappings"
+    url = 'https://dogforce-games.com/maven'
+  }
+//  maven {    url = 'https://modmaven.k-4u.nl'  }
 //  maven {
 //  	name = "curios"
 //    url = 'https://maven.theillusivec4.top/'
 //  }
 //  maven { url = 'https://maven.blamejared.com' }
-  maven {
-    url "https://cursemaven.com"
-    content {
-      includeGroup "curse.maven"
-    }
-  }
+  
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
