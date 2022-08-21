@@ -26,5 +26,7 @@ public class ClientOreRegistry {
     ItemBlockRenderTypes.setRenderLayer(ModRegistry.LAPIS_END.get(), c);
     ItemBlockRenderTypes.setRenderLayer(ModRegistry.REDSTONE_END.get(), c);
     ItemBlockRenderTypes.setRenderLayer(ModRegistry.GHAST_NETHER.get(), c);
+    ItemBlockRenderTypes.setRenderLayer(ModRegistry.REDSTONE_NETHER.get(), c);
+    ItemBlockRenderTypes.setRenderLayer(ModRegistry.IRON_END.get(), c);
   }
 }

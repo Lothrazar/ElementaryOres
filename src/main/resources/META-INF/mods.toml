@@ -51,3 +51,9 @@ Adds some basic end and nether ores
     versionRange="[1.18.2,)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.scraps]]
+    modId="flib"
+    mandatory=true
+    versionRange="[0.0.0,)"
+    ordering="NONE"
+    side="BOTH"

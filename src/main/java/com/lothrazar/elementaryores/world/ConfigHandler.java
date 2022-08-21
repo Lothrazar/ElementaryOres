@@ -17,6 +17,11 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue IRONMIN;
     public static ForgeConfigSpec.IntValue IRONMAX;
     public static ForgeConfigSpec.IntValue IRON_VEINSIZE;
+    public static IntValue IRON_SPREAD;
+    public static ForgeConfigSpec.IntValue REDSTONEMIN;
+    public static ForgeConfigSpec.IntValue REDSTONEMAX;
+    public static ForgeConfigSpec.IntValue REDSTONE_VEINSIZE;
+    public static IntValue REDSTONE_SPREAD;
     public static ForgeConfigSpec.IntValue LAPISMIN;
     public static ForgeConfigSpec.IntValue LAPISMAX;
     public static ForgeConfigSpec.IntValue LAPIS_VEINSIZE;
@@ -36,7 +41,6 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue GHASTMAX;
     public static ForgeConfigSpec.IntValue GHAST_VEINSIZE;
     public static IntValue EMERALD_SPREAD;
-    public static IntValue IRON_SPREAD;
     public static IntValue LAPIS_SPREAD;
     public static IntValue DIAMOND_SPREAD;
     public static IntValue COAL_SPREAD;
@@ -67,13 +71,17 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue COPPERMIN;
     public static ForgeConfigSpec.IntValue COPPERMAX;
     public static ForgeConfigSpec.IntValue COPPERVEINSIZE;
+    public static IntValue COPPER_SPREAD;
+    public static ForgeConfigSpec.IntValue IRONMIN;
+    public static ForgeConfigSpec.IntValue IRONMAX;
+    public static ForgeConfigSpec.IntValue IRONVEINSIZE;
+    public static IntValue IRONSPREAD;
     public static IntValue REDSTONE_SPREAD;
     public static IntValue EMERALD_SPREAD;
     public static IntValue ENDER_SPREAD;
     public static IntValue DIAMOND_SPREAD;
     public static IntValue LAPIS_SPREAD;
     public static IntValue COAL_SPREAD;
-    public static IntValue COPPER_SPREAD;
   }
 
   static {
@@ -115,6 +123,11 @@ public class ConfigHandler {
     Nether.GHASTMAX = CFG.comment(commentVert).defineInRange("nether.ghast.highest", 64, min, max);
     Nether.GHAST_VEINSIZE = CFG.comment(commentSize).defineInRange("nether.ghast.size", 4, 0, 64);
     Nether.GHAST_SPREAD = CFG.comment(commentSpread).defineInRange("nether.ghast.spread", 50, 0, 64);
+    //nether redspone defaults to super small and rare
+    Nether.REDSTONEMIN = CFG.comment(commentVert).defineInRange("nether.redstone.lowest", -128, min, max);
+    Nether.REDSTONEMAX = CFG.comment(commentVert).defineInRange("nether.redstone.highest", 50, min, max);
+    Nether.REDSTONE_VEINSIZE = CFG.comment(commentSize).defineInRange("nether.redstone.size", 8, 0, 64);
+    Nether.REDSTONE_SPREAD = CFG.comment(commentSpread).defineInRange("nether.redstone.spread", 50, 0, 64);
     //the end
     End.REDSTONEMIN = CFG.comment(commentVert).defineInRange("end.redstone.lowest", 50, min, max);
     End.REDSTONEMAX = CFG.comment(commentVert).defineInRange("end.redstone.highest", 128, min, max);
@@ -144,6 +157,11 @@ public class ConfigHandler {
     End.COPPERMAX = CFG.comment(commentVert).defineInRange("end.copper.highest", 128, min, max);
     End.COPPERVEINSIZE = CFG.comment(commentSize).defineInRange("end.copper.size", 4, 0, 64);
     End.COPPER_SPREAD = CFG.comment(commentSpread).defineInRange("end.copper.spread", 50, 0, 64);
+    //newshit
+    End.IRONMIN = CFG.comment(commentVert).defineInRange("end.iron.lowest", 40, min, max);
+    End.IRONMAX = CFG.comment(commentVert).defineInRange("end.iron.highest", 256, min, max);
+    End.IRONVEINSIZE = CFG.comment(commentSize).defineInRange("end.iron.size", 8, 0, 64);
+    End.IRONSPREAD = CFG.comment(commentSpread).defineInRange("end.iron.spread", 30, 0, 64);
     CFG.pop();
     COMMON_CONFIG = CFG.build();
   }

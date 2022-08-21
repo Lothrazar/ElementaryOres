@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "elementaryores:ore_redstone_nether",
     "elementaryores:ore_redstone_end"
   ]
 }

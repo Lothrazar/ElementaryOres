@@ -11,13 +11,13 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 
 version = "${mc_version}-${mod_version}"
 group = 'com.lothrazar.elementaryores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'elementaryores'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
  mappings channel: 'official', version: '1.18.2'
@@ -30,6 +30,8 @@ minecraft {
         client {
             workingDirectory project.file('run')
             
+            // needed for some addons such as patchouli
+            property 'mixin.env.disableRefMap', 'true'
 			
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -70,6 +72,8 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
+    implementation fg.deobf("blank:flib-${mc_version}:${flib_version}")
+    
     implementation fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
  //   compile fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
  //   compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
@@ -95,6 +99,9 @@ dependencies {
 }
 
 repositories {
+  flatDir {
+      dir 'libs'
+  }
   maven {
     // location of the maven that hosts JEI files
     name = "Progwml6 maven"

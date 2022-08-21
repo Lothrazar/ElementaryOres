@@ -31,6 +31,8 @@ public class BiomeLoader {
         r.addFeature(d, WorldGenRegistry.COPPER_NETHER_PLACED);
       if (ConfigHandler.Nether.GHAST_VEINSIZE.get() > 0)
         r.addFeature(d, WorldGenRegistry.GHAST_NETHER_PLACED);
+      if (ConfigHandler.Nether.REDSTONE_VEINSIZE.get() > 0)
+        r.addFeature(d, WorldGenRegistry.REDSTONE_NETHER_PLACED);
     }
     else if (event.getCategory() == Biome.BiomeCategory.THEEND) {
       if (ConfigHandler.End.REDSTONEVEINSIZE.get() > 0)
@@ -47,6 +49,8 @@ public class BiomeLoader {
         r.addFeature(d, WorldGenRegistry.COAL_END_PLACED);
       if (ConfigHandler.End.COPPERVEINSIZE.get() > 0)
         r.addFeature(d, WorldGenRegistry.COPPER_END_PLACED);
+      if (ConfigHandler.End.IRONVEINSIZE.get() > 0)
+        r.addFeature(d, WorldGenRegistry.IRON_END_PLACED);
     }
   }
 }
