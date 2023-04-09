@@ -1,12 +1,13 @@
 package com.lothrazar.elementaryores;
 
+import com.lothrazar.library.registry.RegistryFactory;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,13 +18,12 @@ public class ModRegistry {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ModElemOres.MODID);
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ModElemOres.MODID);
-  public static final CreativeModeTab TAB = new CreativeModeTab(ModElemOres.MODID) {
 
-    @Override
-    public ItemStack makeIcon() {
-      return new ItemStack(ModRegistry.EMERALD_NETHER.get());
-    }
-  };
+  @SubscribeEvent
+  public static void buildContents(CreativeModeTabEvent.Register event) {
+    RegistryFactory.buildTab(event, ModElemOres.MODID, EMERALD_NETHER.get().asItem(), ITEMS);
+  }
+
   //a randomizer? 
   // GUNPOWDER  // GLOWSTONE DUST // GHAST TEAR // BLAZE POWDER
   public static final RegistryObject<Block> COAL_NETHER = BLOCKS.register("ore_coal_nether", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
@@ -44,21 +44,21 @@ public class ModRegistry {
   public static final RegistryObject<Block> GHAST_NETHER = BLOCKS.register("ore_ghast_nether", () -> new Block(Block.Properties.of(Material.STONE).strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
   //ore_nether_ghast
   static {
-    ITEMS.register("ore_coal_nether", () -> new BlockItem(COAL_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_copper_nether", () -> new BlockItem(COPPER_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_iron_nether", () -> new BlockItem(IRON_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_emerald_nether", () -> new BlockItem(EMERALD_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_lapis_nether", () -> new BlockItem(LAPIS_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_diamond_nether", () -> new BlockItem(DIAMOND_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
+    ITEMS.register("ore_coal_nether", () -> new BlockItem(COAL_NETHER.get(), new Item.Properties()));
+    ITEMS.register("ore_copper_nether", () -> new BlockItem(COPPER_NETHER.get(), new Item.Properties()));
+    ITEMS.register("ore_iron_nether", () -> new BlockItem(IRON_NETHER.get(), new Item.Properties()));
+    ITEMS.register("ore_emerald_nether", () -> new BlockItem(EMERALD_NETHER.get(), new Item.Properties()));
+    ITEMS.register("ore_lapis_nether", () -> new BlockItem(LAPIS_NETHER.get(), new Item.Properties()));
+    ITEMS.register("ore_diamond_nether", () -> new BlockItem(DIAMOND_NETHER.get(), new Item.Properties()));
     //
-    ITEMS.register("ore_coal_end", () -> new BlockItem(COAL_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_copper_end", () -> new BlockItem(COPPER_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_redstone_end", () -> new BlockItem(REDSTONE_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_emerald_end", () -> new BlockItem(EMERALD_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_lapis_end", () -> new BlockItem(LAPIS_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_diamond_end", () -> new BlockItem(DIAMOND_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
+    ITEMS.register("ore_coal_end", () -> new BlockItem(COAL_END.get(), new Item.Properties()));
+    ITEMS.register("ore_copper_end", () -> new BlockItem(COPPER_END.get(), new Item.Properties()));
+    ITEMS.register("ore_redstone_end", () -> new BlockItem(REDSTONE_END.get(), new Item.Properties()));
+    ITEMS.register("ore_emerald_end", () -> new BlockItem(EMERALD_END.get(), new Item.Properties()));
+    ITEMS.register("ore_lapis_end", () -> new BlockItem(LAPIS_END.get(), new Item.Properties()));
+    ITEMS.register("ore_diamond_end", () -> new BlockItem(DIAMOND_END.get(), new Item.Properties()));
     //
-    ITEMS.register("ore_ender_end", () -> new BlockItem(ENDER_END.get(), new Item.Properties().tab(ModRegistry.TAB)));
-    ITEMS.register("ore_ghast_nether", () -> new BlockItem(GHAST_NETHER.get(), new Item.Properties().tab(ModRegistry.TAB)));
+    ITEMS.register("ore_ender_end", () -> new BlockItem(ENDER_END.get(), new Item.Properties()));
+    ITEMS.register("ore_ghast_nether", () -> new BlockItem(GHAST_NETHER.get(), new Item.Properties()));
   }
 }
