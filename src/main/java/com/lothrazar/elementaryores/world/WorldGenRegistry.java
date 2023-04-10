@@ -1,21 +1,9 @@
 package com.lothrazar.elementaryores.world;
 
-import java.util.List;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-
 public class WorldGenRegistry {
-
   //  public static final RuleTest OW = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
-  private static final RuleTest NETHER = new BlockMatchTest(Blocks.NETHERRACK); // OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER;
-  private static final RuleTest END = new BlockMatchTest(Blocks.END_STONE);
+  //  private static final RuleTest NETHER = new BlockMatchTest(Blocks.NETHERRACK); // OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER;
+  //  private static final RuleTest END = new BlockMatchTest(Blocks.END_STONE);
   // end ores
   //  public static final Holder<ConfiguredFeature<OreConfiguration, ?>> COAL_END = buildOreFeature(new ResourceLocation(ModElemOres.MODID, "coal_end"),
   //      END, ModRegistry.COAL_END.get(), ConfigHandler.End.COALVEINSIZE.get());
@@ -80,20 +68,4 @@ public class WorldGenRegistry {
   //  private static Holder<ConfiguredFeature<OreConfiguration, ?>> buildOreFeature(ResourceLocation location, RuleTest rule, Block block, int size) {
   //    return FeatureUtils.register(location.toString(), Feature.ORE, new OreConfiguration(rule, block.defaultBlockState(), size));
   //  }
-
-  private static List<PlacementModifier> generatePlacementModifiers(int spread, int minHeight, int maxHeight) {
-    return commonOrePlacement(spread, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(minHeight), VerticalAnchor.absolute(maxHeight)));
-  }
-
-  private static List<PlacementModifier> orePlacement(PlacementModifier countModifier, PlacementModifier heightPlacement) {
-    return List.of(countModifier, InSquarePlacement.spread(), heightPlacement, BiomeFilter.biome());
-  }
-
-  private static List<PlacementModifier> commonOrePlacement(int spread, PlacementModifier modifier) {
-    return orePlacement(CountPlacement.of(spread), modifier);
-  }
-
-  public static void init() {
-    //Just here to load the class and let the features be initialized and registered
-  }
 }
