@@ -2,11 +2,11 @@
   "type": "minecraft:ore",
   "config": {
     "discard_chance_on_air_exposure": 0.0,
-    "size": 9,
+    "size": 12,
     "targets": [
       {
         "state": {
-          "Name": "elementaryores:ore_iron_nether"
+          "Name": "elementaryores:ore_copper_nether"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

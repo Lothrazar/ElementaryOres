@@ -1,9 +1,9 @@
 {
-  "feature": "elementaryores:ore_iron_nether",
+  "feature": "elementaryores:ore_lapis_nether",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 10
+      "count": 2
     },
     {
       "type": "minecraft:in_square"
@@ -11,9 +11,9 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:trapezoid",
+        "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 76
+          "absolute": 128
         },
         "min_inclusive": {
           "absolute": 1

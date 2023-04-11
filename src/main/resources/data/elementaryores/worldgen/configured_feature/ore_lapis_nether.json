@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "elementaryores:ore_iron_nether"
+          "Name": "elementaryores:ore_lapis_nether"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
