@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_end",
-  "features": ["elementaryores:coal_end"],
+  "features": ["elementaryores:coal_end","elementaryores:copper_end","elementaryores:diamond_end","elementaryores:emerald_end","elementaryores:ender_end","elementaryores:lapis_end","elementaryores:redstone_end"],
   "step": "underground_ores"
 }
