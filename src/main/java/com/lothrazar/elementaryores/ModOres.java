@@ -11,9 +11,9 @@ public class ModOres {
   public static final String MODID = "elementaryores";
 
   public ModOres() {
-    IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    RegistryOres.BLOCKS.register(eventBus);
-    RegistryOres.ITEMS.register(eventBus);
     new ConfigRegistryOres();
+    IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    RegistryOres.BLOCKS.register(bus);
+    RegistryOres.ITEMS.register(bus);
   }
 }
