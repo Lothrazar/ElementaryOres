@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#c:ores/copper",
+    "#c:ores/coal",
+    "#c:ores/diamond",
+    "#c:ores/emerald",
+    "#c:ores/ender",
+    "#c:ores/ghast",
+    "#c:ores/iron",
+    "#c:ores/lapis",
+    "#c:ores/redstone"
+  ]
+}

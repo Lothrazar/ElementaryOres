@@ -1,18 +1,19 @@
 package com.lothrazar.elementaryores;
 
 import com.lothrazar.elementaryores.world.ConfigRegistryOres;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 
 @Mod(ModOres.MODID)
 public class ModOres {
 
   public static final String MODID = "elementaryores";
 
-  public ModOres() {
-    new ConfigRegistryOres();
-    IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+  public ModOres(IEventBus bus, ModContainer modContainer) {
+    modContainer.registerConfig(ModConfig.Type.COMMON, ConfigRegistryOres.CONFIG);
+    RegistryOres.TABS.register(bus);
     RegistryOres.BLOCKS.register(bus);
     RegistryOres.ITEMS.register(bus);
   }

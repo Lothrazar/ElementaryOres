@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": ["elementaryores:coal_nether","elementaryores:copper_nether","elementaryores:diamond_nether","elementaryores:emerald_nether","elementaryores:ghast_nether","elementaryores:iron_nether","elementaryores:lapis_nether"],
+  "step": "underground_ores"
+}

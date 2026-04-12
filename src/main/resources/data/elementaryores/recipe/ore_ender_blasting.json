@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "c:ores/ender"
+  },
+  "result": {"id": "minecraft:ender_pearl"},
+  "experience": 1.0,
+  "cookingtime": 100
+}

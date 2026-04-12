@@ -1,5 +1,5 @@
 package com.lothrazar.elementaryores;
- 
+
 import com.lothrazar.library.block.BlockFlib;
 import com.lothrazar.library.item.BlockItemFlib;
 import net.minecraft.core.registries.Registries;
@@ -11,52 +11,35 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryOres {
 
-  private static final ResourceKey<CreativeModeTab> TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(ModOres.MODID, "tab"));
-  public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ModOres.MODID);
-  public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ModOres.MODID);
+  private static final ResourceKey<CreativeModeTab> TAB_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(ModOres.MODID, "tab"));
+  public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModOres.MODID);
+  public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, ModOres.MODID);
+  public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, ModOres.MODID);
 
-  @SubscribeEvent
-  public static void onCreativeModeTabRegister(RegisterEvent event) {
-    event.register(Registries.CREATIVE_MODE_TAB, helper -> {
-      helper.register(TAB, CreativeModeTab.builder().icon(() -> new ItemStack(EMERALD_NETHER.get().asItem()))
-          .title(Component.translatable("itemGroup." + ModOres.MODID))
-          .displayItems((enabledFlags, populator) -> {
-            for (RegistryObject<Item> entry : ITEMS.getEntries()) {
-              populator.accept(entry.get());
-            }
-          }).build());
-    });
-  }
-   
-  //a randomizer? 
+  //a randomizer?
   // GUNPOWDER  // GLOWSTONE DUST // GHAST TEAR // BLAZE POWDER
-  public static final RegistryObject<Block> COAL_NETHER = BLOCKS.register("ore_coal_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> COPPER_NETHER = BLOCKS.register("ore_copper_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COPPER_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> IRON_NETHER = BLOCKS.register("ore_iron_nether", () -> new Block(BlockFlib.Properties.of().strength(Blocks.IRON_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> EMERALD_NETHER = BLOCKS.register("ore_emerald_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.EMERALD_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> LAPIS_NETHER = BLOCKS.register("ore_lapis_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> DIAMOND_NETHER = BLOCKS.register("ore_diamond_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> COAL_NETHER = BLOCKS.register("ore_coal_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> COPPER_NETHER = BLOCKS.register("ore_copper_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COPPER_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> IRON_NETHER = BLOCKS.register("ore_iron_nether", () -> new Block(BlockFlib.Properties.of().strength(Blocks.IRON_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> EMERALD_NETHER = BLOCKS.register("ore_emerald_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.EMERALD_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> LAPIS_NETHER = BLOCKS.register("ore_lapis_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> DIAMOND_NETHER = BLOCKS.register("ore_diamond_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
   //
-  public static final RegistryObject<Block> COAL_END = BLOCKS.register("ore_coal_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> COPPER_END = BLOCKS.register("ore_copper_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COPPER_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.REDSTONE_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> EMERALD_END = BLOCKS.register("ore_emerald_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.EMERALD_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> DIAMOND_END = BLOCKS.register("ore_diamond_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> COAL_END = BLOCKS.register("ore_coal_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COAL_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> COPPER_END = BLOCKS.register("ore_copper_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.COPPER_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> REDSTONE_END = BLOCKS.register("ore_redstone_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.REDSTONE_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> EMERALD_END = BLOCKS.register("ore_emerald_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.EMERALD_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> LAPIS_END = BLOCKS.register("ore_lapis_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.LAPIS_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> DIAMOND_END = BLOCKS.register("ore_diamond_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
   //
-  public static final RegistryObject<Block> ENDER_END = BLOCKS.register("ore_ender_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
-  public static final RegistryObject<Block> GHAST_NETHER = BLOCKS.register("ore_ghast_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
-  //ore_nether_ghast
+  public static final DeferredHolder<Block, Block> ENDER_END = BLOCKS.register("ore_ender_end", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
+  public static final DeferredHolder<Block, Block> GHAST_NETHER = BLOCKS.register("ore_ghast_nether", () -> new BlockFlib(Block.Properties.of().strength(Blocks.DIAMOND_ORE.defaultBlockState().destroySpeed)));
+
   static {
     ITEMS.register("ore_coal_nether", () -> new BlockItemFlib(COAL_NETHER.get(), new Item.Properties()));
     ITEMS.register("ore_copper_nether", () -> new BlockItemFlib(COPPER_NETHER.get(), new Item.Properties()));
@@ -74,5 +57,16 @@ public class RegistryOres {
     //
     ITEMS.register("ore_ender_end", () -> new BlockItemFlib(ENDER_END.get(), new Item.Properties()));
     ITEMS.register("ore_ghast_nether", () -> new BlockItemFlib(GHAST_NETHER.get(), new Item.Properties()));
+  }
+
+  static {
+    TABS.register("tab", () -> CreativeModeTab.builder()
+        .icon(() -> new ItemStack(EMERALD_NETHER.get().asItem()))
+        .title(Component.translatable("itemGroup." + ModOres.MODID))
+        .displayItems((enabledFlags, populator) -> {
+          for (DeferredHolder<Item, ? extends Item> entry : ITEMS.getEntries()) {
+            populator.accept(entry.get());
+          }
+        }).build());
   }
 }
