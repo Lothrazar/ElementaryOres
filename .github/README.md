@@ -1,20 +1,13 @@
-# elementary-ores
+﻿# elementary-ores
   
+[![CurseForge](https://img.shields.io/badge/CurseForge-F16436?style=flat-square&logo=curseforge&logoColor=white)](https://www.curseforge.com/minecraft/mc-mods/elementary-ores)
+[![Modrinth](https://img.shields.io/badge/Modrinth-1bd96a?style=flat-square&logo=modrinth&logoColor=white)](https://modrinth.com/mod/elementary-ores)
+
 [![](http://cf.way2muchnoise.eu/332609.svg)](https://www.curseforge.com/minecraft/mc-mods/elementary-ores) 
 [![](http://cf.way2muchnoise.eu/versions/332609.svg)](https://www.curseforge.com/minecraft/mc-mods/elementary-ores)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Twitter Badge](https://img.shields.io/badge/contact-twitter-blue.svg)](https://twitter.com/lothrazar)
- 
-
-A Forge mod for Minecraft Java
-
-- Download a Forge MDK from [https://files.minecraftforge.net/](https://files.minecraftforge.net)
-
-- Clone this repository and add the files into the unzipped MDK folder
-
-- run ./setup.sh
-
-- Open as a Gradle project in Eclipse (or your favorite Java IDE)
+[![socials](https://img.shields.io/badge/more-links-ff69b4.svg)](https://allmylinks.com/lothrazar)
+[![Support](https://img.shields.io/badge/Patreon-Support-orange.svg?logo=Patreon)](https://www.patreon.com/Lothrazar)
 
 
-[![](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/lothrazar)

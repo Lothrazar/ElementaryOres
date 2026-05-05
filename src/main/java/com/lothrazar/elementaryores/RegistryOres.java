@@ -16,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class RegistryOres {
 
-  private static final ResourceKey<CreativeModeTab> TAB_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(ModOres.MODID, "tab"));
+//  private static final ResourceKey<CreativeModeTab> TAB_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(ModOres.MODID, "tab"));
   public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModOres.MODID);
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, ModOres.MODID);
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, ModOres.MODID);
