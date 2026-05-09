@@ -1,0 +1,3 @@
+#See the datapack for modifying ore spawns
+[elementaryores]
+	_comment = "All worldgen controls have been moved to the mojang datapack system instead of configs.  See built-in json files inside /data/elementaryores/worldgen/ "
