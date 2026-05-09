@@ -9,8 +9,8 @@
           "Name": "elementaryores:ore_iron_nether"
         },
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "forge:netherrack"
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:netherrack"
         }
       }
     ]

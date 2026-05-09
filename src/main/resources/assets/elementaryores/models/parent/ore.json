@@ -1,6 +1,5 @@
 {
   "parent": "block/block",
-  "ambientocclusion":false,
   "render_type": "cutout",
   "forge_marker": 1,
   "elements": [

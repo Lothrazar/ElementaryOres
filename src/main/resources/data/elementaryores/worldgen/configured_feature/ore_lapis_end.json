@@ -9,8 +9,8 @@
           "Name": "elementaryores:ore_lapis_end"
         },
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "forge:end_stones"
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:end_stone"
         }
       }
     ]
