@@ -1,0 +1,3 @@
+[elementaryores]
+	#When enabled, ore overlay textures render at full brightness regardless of light level.  Should update ingame F3+T instead of full restart
+	enableEmmissiveTextures = false

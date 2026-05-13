@@ -1,9 +1,10 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/elementary-ores",
 	"promos": {
-		"1.21.1-latest": "2.0.0"
+		"1.21.1-latest": "2.1.0"
 	},
 	"1.21.1": {
-		"2.0.0":"Ported"
+		"2.0.0":"Ported",
+		"2.1.0":"Add Emissive textures to the ore layer of the texture, so the netherrack and endstone do not glow just the ore parts.  This can be toggled in the new elementaryores-client.toml config file"
 	}
 }

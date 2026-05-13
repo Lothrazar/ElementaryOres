@@ -1,5 +1,6 @@
 package com.lothrazar.elementaryores;
 
+import com.lothrazar.elementaryores.client.ClientConfigOres;
 import com.lothrazar.elementaryores.world.ConfigRegistryOres;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -13,6 +14,7 @@ public class ModOres {
 
   public ModOres(IEventBus bus, ModContainer modContainer) {
     modContainer.registerConfig(ModConfig.Type.COMMON, ConfigRegistryOres.CONFIG);
+    modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfigOres.CONFIG);
     RegistryOres.TABS.register(bus);
     RegistryOres.BLOCKS.register(bus);
     RegistryOres.ITEMS.register(bus);

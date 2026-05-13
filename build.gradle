@@ -307,8 +307,8 @@ tasks.register('syncExampleConfigs') {
     }
 
     def found = [
-      "${modId}.toml",
       "${modId}.json",
+      "${modId}.toml",
       "${modId}-common.toml",
       "${modId}-client.toml",
       "${modId}-server.toml"
