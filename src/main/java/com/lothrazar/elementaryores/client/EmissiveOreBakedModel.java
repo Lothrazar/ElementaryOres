@@ -1,50 +1,95 @@
 package com.lothrazar.elementaryores.client;
 
 import com.lothrazar.elementaryores.ModOres;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModelPart;
+import net.minecraft.client.resources.model.geometry.BakedQuad;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.model.BakedModelWrapper;
-import net.neoforged.neoforge.client.model.data.ModelData;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
-public class EmissiveOreBakedModel extends BakedModelWrapper<net.minecraft.client.resources.model.BakedModel> {
+public class EmissiveOreBakedModel implements BlockStateModel {
 
-  // Packed lightmap value for maximum block + sky light (full bright)
-  private static final int FULL_BRIGHT = 0x00F000F0;
+  // Max per-quad light emission (BakedQuad.MaterialInfo#lightEmission is 0-15, not a packed lightmap value anymore)
+  private static final int FULL_BRIGHT = 15;
 
-  public EmissiveOreBakedModel(net.minecraft.client.resources.model.BakedModel wrapped) {
-    super(wrapped);
+  private final BlockStateModel wrapped;
+
+  public EmissiveOreBakedModel(BlockStateModel wrapped) {
+    this.wrapped = wrapped;
   }
 
   @Override
-  public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side,
-      RandomSource rand, ModelData data, @Nullable RenderType renderType) {
-    List<BakedQuad> quads = super.getQuads(state, side, rand, data, renderType);
-    if (!ClientConfigOres.ENABLE_EMMISSIVE_TEXTURES.get()) {
-      return quads;
+  public void collectParts(RandomSource random, List<BlockStateModelPart> output) {
+    List<BlockStateModelPart> wrappedParts = new ArrayList<>();
+    wrapped.collectParts(random, wrappedParts);
+    for (BlockStateModelPart part : wrappedParts) {
+      output.add(new EmissivePart(part));
     }
-    return quads.stream()
-        .map(quad -> isOverlayQuad(quad) ? makeEmissive(quad) : quad)
-        .toList();
+  }
+
+  @Override
+  public Material.Baked particleMaterial() {
+    return wrapped.particleMaterial();
+  }
+
+  @Override
+  public int materialFlags() {
+    return wrapped.materialFlags();
+  }
+
+  private static class EmissivePart implements BlockStateModelPart {
+
+    private final BlockStateModelPart wrapped;
+
+    EmissivePart(BlockStateModelPart wrapped) {
+      this.wrapped = wrapped;
+    }
+
+    @Override
+    public List<BakedQuad> getQuads(@Nullable Direction direction) {
+      List<BakedQuad> quads = wrapped.getQuads(direction);
+      if (!ClientConfigOres.ENABLE_EMMISSIVE_TEXTURES.get()) {
+        return quads;
+      }
+      List<BakedQuad> result = new ArrayList<>(quads.size());
+      for (BakedQuad quad : quads) {
+        result.add(isOverlayQuad(quad) ? makeEmissive(quad) : quad);
+      }
+      return result;
+    }
+
+    @Override
+    public boolean useAmbientOcclusion() {
+      return wrapped.useAmbientOcclusion();
+    }
+
+    @Override
+    public Material.Baked particleMaterial() {
+      return wrapped.particleMaterial();
+    }
+
+    @Override
+    public int materialFlags() {
+      return wrapped.materialFlags();
+    }
   }
 
   // Overlay quads use textures from this mod's namespace; base quads (netherrack, end_stone) are in "minecraft"
   private static boolean isOverlayQuad(BakedQuad quad) {
-    return ModOres.MODID.equals(quad.getSprite().contents().name().getNamespace());
+    return ModOres.MODID.equals(quad.materialInfo().sprite().contents().name().getNamespace());
   }
 
   private static BakedQuad makeEmissive(BakedQuad quad) {
-    int[] vertices = Arrays.copyOf(quad.getVertices(), quad.getVertices().length);
-    // DefaultVertexFormat.BLOCK: 8 ints per vertex, lightmap UV is at offset 6
-    for (int i = 0; i < 4; i++) {
-      vertices[i * 8 + 6] = FULL_BRIGHT;
-    }
-    return new BakedQuad(vertices, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.isShade());
+    BakedQuad.MaterialInfo mi = quad.materialInfo();
+    BakedQuad.MaterialInfo emissiveMi = new BakedQuad.MaterialInfo(
+        mi.sprite(), mi.layer(), mi.itemRenderType(), mi.tintIndex(), mi.shade(), FULL_BRIGHT, mi.ambientOcclusion());
+    return new BakedQuad(quad.position0(), quad.position1(), quad.position2(), quad.position3(),
+        quad.packedUV0(), quad.packedUV1(), quad.packedUV2(), quad.packedUV3(),
+        quad.direction(), emissiveMi, quad.bakedNormals(), quad.bakedColors());
   }
 }
