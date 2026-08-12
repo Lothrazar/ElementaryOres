@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "c:ores/emerald"
+  "ingredient": "#c:ores/emerald",
+  "result": {
+    "id": "minecraft:emerald"
   },
-  "result": {"id": "minecraft:emerald"},
   "experience": 0.35,
   "cookingtime": 500
 }

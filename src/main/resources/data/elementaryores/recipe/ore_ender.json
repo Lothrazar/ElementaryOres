@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "c:ores/ender"
+  "ingredient": "#c:ores/ender",
+  "result": {
+    "id": "minecraft:ender_pearl"
   },
-  "result": {"id": "minecraft:ender_pearl"},
   "experience": 0.35,
   "cookingtime": 500
 }
